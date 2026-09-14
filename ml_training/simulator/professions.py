@@ -107,17 +107,14 @@ PROFESSION_PREREQUISITE = {
 
 PREREQUISITE_SKILL_FRACTION = 0.5    # "50% of the prerequisite skill" from the game
 
-# Skill grows by working, from 0 to 1. A sim at skill 1.0 is a master; a NONE sim
-# assigned to L1 work is a novice who learns on the job. Anchored to the adult life
-# (like everything else, see config.py TIME SCALE): a sim masters a skill by working
-# ~this fraction of a working life, so expertise is achievable within a generation but
-# not instant, and losing a master hurts.
+# Skill grows by working, 0 to 1: a NONE sim on L1 work is a novice who learns on the job; at
+# 1.0 it is a master.
 SKILL_MAX = 1.0
-# A sim masters a skill by working ~this fraction of a working life. It must be < 1 life, or
-# — given D36's fast generational turnover — no one lives long enough to master anything and
-# every workshop is worked by novices (measured: productivity pinned ~0.3, the higher trades
-# never staffed). Mentorship and schools still multiply this and still matter; they now make a
-# fast walk faster, instead of being the only way to arrive at all.
+# A sim masters a skill by working ~this fraction of a working life (anchored to the adult life,
+# see config.py). Must be < 1 life, or — given D36's fast turnover — no one lives long enough to
+# master anything and every workshop is novice-worked (measured: productivity pinned ~0.3, higher
+# trades never staffed). Mentorship and schools multiply this; they make the walk faster, not the
+# only way to arrive.
 _SKILL_MASTERY_FRACTION = 0.6
 
 # Transferable expertise: when a qualified sim takes up a higher-tier profession, the
