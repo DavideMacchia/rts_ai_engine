@@ -1,5 +1,9 @@
 # Population, Policies, and the District's View
 
+> **Current plan: [roadmap.md](roadmap.md).** The "10/10 BC oracle" referenced below is
+> historical — it was retired by the district-unified redesign (new action space and objective).
+> The population/policy mechanics documented here still stand.
+
 > Status: design document. **§2–§5 are implemented in the training simulator**
 > (`simulator/policies.py`, `District.calculate_happiness()`,
 > `PopulationManager.fertility()`, `TrainingManager.conscript_district()`), covered by

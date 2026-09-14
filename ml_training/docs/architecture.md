@@ -8,6 +8,12 @@
 > self-managing sims, and how we simulate them cheaply enough to train on*, see
 > [population_and_policies.md](population_and_policies.md).
 
+> **Current plan: [roadmap.md](roadmap.md).** Two decisions below have since changed: the
+> **civil district is now RL, not a scripted utility bot** (its economy is a first-class
+> learning problem), and a district claims a **square, non-overlapping territory with an
+> adjustable side**. The tier structure here still holds; the stage table in §7 and any
+> "wins 10/10" line are historical (that oracle was retired by the district-unified redesign).
+
 ---
 
 ## 1. The tiered agent, aligned to the game
@@ -272,7 +278,7 @@ steps, few decisions, a clean signal.
 | Stage | Content | Control / test |
 |---|---|---|
 | 0 | Single-settlement agent (env, masking, delta rewards, BC + critic warm-up) | ✅ done — see §2 |
-| 1 | **`Faction` = set of `District`s.** Start with exactly ONE district | ✅ done — BC policy still wins 10/10 vs all three bots; `tests/unit/test_districts.py` covers the multi-district paths |
+| 1 | **`Faction` = set of `District`s.** Start with exactly ONE district | ✅ done — `tests/unit/test_districts.py` covers the multi-district paths (the "10/10 vs all bots" oracle from this era is now retired) |
 | **2** | Region graph + map generation; the district lives on a region. Still one district | No behaviour change; the map exists but is inert. `District.location` is already the seam |
 | 3 | **Macro v1**: `FOUND_DISTRICT(region)` + `ASSIGN_POPULATION`. District brains **frozen** (scripted/BC). Per-district stock, **no** transfers yet | First real macro learning, clean credit assignment |
 | 4 | **Logistics**: routes and transfers, cost from the graph | The distance trade-off becomes real |
@@ -282,7 +288,8 @@ steps, few decisions, a clean signal.
 
 **Stage 1, in hindsight.** It touched every manager except `reward_calculator` (which
 reads only faction-level aggregates, and rewards are faction-scoped anyway). The
-perfect regression oracle held throughout: the BC policy still wins 10/10. The one
+regression oracle held throughout the refactor (that "10/10" oracle was later retired by the
+district-unified redesign — see [roadmap.md](roadmap.md) and design_decisions D32+). The one
 subtle decision — how `Faction` can expose aggregates without silently swallowing the
 faction-level writes that pervade the codebase — is written up as **D10**.
 

@@ -14,6 +14,11 @@ Documentation for the RTS AI macro-brain training system (`ml_training/`).
 3. **[design_decisions.md](design_decisions.md)** — *why* the system is built this
    way: the diagnostic log of the military-learning problem and the reward
    pitfalls. Read this before changing rewards, the opponent, or the horizon.
+4. **[roadmap.md](roadmap.md)** — **the current plan**: the steps and objectives
+   toward the full multi-model hierarchy (macro orchestrator + civil-RL and
+   military-RL district specialists), and the locked design decisions. This
+   supersedes the tier plan in architecture.md and the older
+   `roadmap_war_economy_macro.md`.
 
 ## One-line status
 

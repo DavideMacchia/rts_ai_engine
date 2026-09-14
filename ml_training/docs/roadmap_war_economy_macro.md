@@ -1,8 +1,12 @@
 # Roadmap — the war economy, the camp tier, the bigger map, the macro brain
 
-> Supersedes the coarse stage table in [architecture.md §7](architecture.md) for everything
-> after the district tier. Written after D27/D28, and shaped by what those measurements
-> actually said rather than by what we hoped they would say.
+> **SUPERSEDED — historical.** The current plan is [roadmap.md](roadmap.md) (multi-model
+> hierarchy: macro orchestrator + civil-RL and military-RL district specialists, square
+> non-overlapping territory, sieges after the military tier). This file is kept for the
+> measurements and reasoning that led here (D27/D28), not as the live plan.
+>
+> _Originally: supersedes the coarse stage table in [architecture.md §7](architecture.md) for
+> everything after the district tier; written after D27/D28._
 
 ## Where this comes from: the measurement that forced it
 
