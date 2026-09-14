@@ -31,11 +31,12 @@ Training has three stages (see [design_decisions.md](design_decisions.md) for wh
 3. **RL fine-tune** (`train_bot.py --resume`) — optional; only useful when the
    expert is *not* already optimal (see D8).
 
-> **Current checkpoint: `checkpoints/district/district_agent_bc_v18.zip`** — BC + critic warm-up
-> on the current 37-action env. It loads and runs, but is **weak**: it clones a scripted expert
-> that idles ~86% and conquers ~38%, so it builds almost no army and loses most games. The
-> `bc_v1` era ("10/10 vs every bot") is retired — those checkpoints predate the district-unified
-> action space and no longer load. Restoring military play under the new objective is open work.
+> **Current policy: a BC + critic warm-up on the current 37-action env** (train one with
+> `pretrain_bc` — checkpoints are not committed, they regenerate in minutes). It runs, but is
+> **weak**: it clones a scripted expert that idles ~86% and conquers ~38%, so it builds almost no
+> army and loses most games. The `bc_v1` era ("10/10 vs every bot") is retired — those checkpoints
+> predate the district-unified action space and no longer load. Restoring military play under the
+> new objective is open work.
 
 ---
 

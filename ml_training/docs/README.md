@@ -22,7 +22,8 @@ deterministic wins against every scripted bot (the `bc_v1` era, now retired — 
 predate the current action space and no longer load). The **district-unified** redesign — one
 tier doing economy *and* military, scored by a graded valuation of its territory — grew the
 action space (30 → 37 actions) and reintroduced the project's oldest failure: the agent
-**doesn't build military**. The current checkpoint (`checkpoints/district/district_agent_bc_v18.zip`,
-BC + critic warm-up on the current env) loads and runs but is passive — it clones a scripted
-expert that itself idles ~86% and conquers ~38%, so it builds almost no army and loses most
-games. Restoring military play under the new objective is the active work (see design_decisions).
+**doesn't build military**. A BC + critic-warm-up policy on the current env (train one with
+`pretrain_bc` — checkpoints are not committed, they regenerate in minutes) loads and runs but
+is passive: it clones a scripted expert that itself idles ~86% and conquers ~38%, so it builds
+almost no army and loses most games. Restoring military play under the new objective is the
+active work (see design_decisions).

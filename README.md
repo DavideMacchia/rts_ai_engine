@@ -98,14 +98,14 @@ pip install -r requirements.txt
 # Run the test suite (the simulator's invariants and behavior)
 python run_tests.py
 
-# Behavioral cloning + critic warm-up (the warm-start policy)
-python -m agents.district.pretrain_bc
+# Behavioral cloning + critic warm-up — trains a policy in a few minutes
+python -m agents.district.pretrain_bc --out checkpoints/district/agent.zip
 
-# MaskablePPO training / fine-tuning
-python -m agents.district.train
+# (optional) MaskablePPO fine-tuning on top of it
+python -m agents.district.train --resume checkpoints/district/agent.zip
 
-# Measure a trained policy: conquests vs each scripted opponent
-python -m agents.district.evaluate --model checkpoints/district/district_agent_bc_v18.zip
+# Measure what you trained: conquests vs each scripted opponent
+python -m agents.district.evaluate --model checkpoints/district/agent.zip
 ```
 
 ---
@@ -117,7 +117,6 @@ python -m agents.district.evaluate --model checkpoints/district/district_agent_b
 | `ml_training/simulator/` | The macro simulation: state, economy, population, combat, map, scripted opponents |
 | `ml_training/agents/district/` | The RL agent: environment, behavioral cloning, training, evaluation |
 | `ml_training/docs/` | **Start here.** Architecture, the training pipeline, and the design-decision log |
-| `ml_training/checkpoints/` | Trained policies |
 | `ml_training/tests/` | Test suite (the simulator's invariants and behavior) |
 | `game_data/` | Balance data (JSON), the source of truth owned by the game |
 

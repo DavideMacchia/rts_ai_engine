@@ -4,8 +4,9 @@ logs_*/
 curriculum_logs/
 ppo_model/
 
-# Keep `checkpoints/` — it holds the current deliverable
-# (checkpoints/district/district_agent_bc_v1.zip, ~2 MB).
+# Trained model checkpoints are regenerable outputs (`pretrain_bc` produces one in
+# minutes); they are not committed. Reproduce from code, then evaluate what you trained.
+checkpoints/
 
 # Python
 __pycache__/
