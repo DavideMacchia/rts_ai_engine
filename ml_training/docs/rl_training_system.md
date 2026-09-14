@@ -222,5 +222,3 @@ while not done:
 - **Evaluate the DETERMINISTIC policy.** Stochastic training win rates flattered a
   policy whose argmax just idled or attacked. `model.predict(..., deterministic=True,
   action_masks=mask)` is the only honest test.
-- **`TRAINING_GUIDE.md` (repo root of ml_training) is OUTDATED** — it describes the
-  old PPO+transformer setup and non-existent opponents. Use these `docs/` instead.

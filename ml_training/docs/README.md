@@ -23,8 +23,3 @@ deterministic games against every scripted opponent. RL fine-tuning is currently
 *not* useful — the scripted expert is already optimal, so there is no headroom
 (design_decisions §D8). Next up: the **`Faction` → `District` refactor** (architecture.md §7 Stage 1),
 which unlocks the macro tier. Self-play is deferred (§D9).
-
-## Note
-
-`../TRAINING_GUIDE.md` is **outdated** (old PPO+Transformer setup, opponents that
-no longer exist). These `docs/` supersede it.
