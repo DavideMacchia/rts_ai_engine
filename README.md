@@ -125,6 +125,10 @@ Read the docs in this order — they carry the depth this README only gestures a
 2. [`ml_training/docs/rl_training_system.md`](ml_training/docs/rl_training_system.md) — how the pipeline works and how to run it.
 3. [`ml_training/docs/design_decisions.md`](ml_training/docs/design_decisions.md) — **why** every choice was made: the diagnostic log.
 
+## License
+
+[MIT](LICENSE).
+
 ---
 
 *A solo research project. The simulator models the macro layer of a companion RTS game; the
