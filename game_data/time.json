@@ -1,0 +1,39 @@
+{
+  "basic": {
+    "minute_in_seconds": 60,
+    "day_in_seconds": 1800,
+    "hours_per_day": 24
+  },
+  "day_night": {
+    "dawn": 6,
+    "day": 8,
+    "dusk": 18,
+    "night": 20
+  },
+  "work_shifts": {
+    "morning_start": 8,
+    "morning_end": 16,
+    "evening_start": 16,
+    "evening_end": 0,
+    "night_start": 0,
+    "night_end": 8,
+    "night_productivity_penalty": 0.8
+  },
+  "routine": {
+    "wake_up": 6,
+    "breakfast": 7,
+    "work_start": 8,
+    "lunch": 12,
+    "work_end": 18,
+    "dinner": 19,
+    "leisure": 20,
+    "sleep": 22
+  },
+  "check_intervals": {
+    "marriage_check": 10.0,
+    "pregnancy_check": 15.0,
+    "resource_regen": 1.0,
+    "needs_update": 1.0,
+    "orphan_check": 5.0
+  }
+}

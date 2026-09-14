@@ -1,0 +1,99 @@
+{
+  "camera": {
+    "movement_speed": 500.0,
+    "zoom_speed": 0.1,
+    "min_zoom": 1.0,
+    "max_zoom": 10.0,
+    "drag_speed_multiplier": 0.008,
+    "initial_position": {
+      "x": 300.0,
+      "y": 300.0,
+      "z": 1000.0
+    }
+  },
+  "tile_highlight": {
+    "brightness": 1.2,
+    "yellow_tint": 0.8
+  },
+  "starting_resources": {
+    "wood": 200,
+    "stone": 100,
+    "clay": 80,
+    "grain": 100,
+    "meat": 80,
+    "water": 200
+  },
+  "population": {
+    "starting_capacity": 10,
+    "capacity_per_house": 4,
+    "capacity_per_dormitory": 8
+  },
+  "transport": {
+    "hand_carry": 1,
+    "handcart": 10,
+    "cart": 50,
+    "carriage": 100
+  },
+  "policy_effects": {
+    "minimum_food_happiness_penalty": 10.0,
+    "siege_happiness_penalty": 15.0,
+    "forced_conscription_happiness_penalty": 20.0,
+    "block_families_happiness_penalty": 15.0,
+    "cant_leave_happiness_penalty": 10.0
+  },
+  "vision": {
+    "watchtower_radius": 15,
+    "defensive_tower_radius": 12,
+    "elevation_bonus": 3
+  },
+  "combat": {
+    "base_damage": 10.0,
+    "critical_chance": 0.1,
+    "critical_multiplier": 2.0,
+    "morale_damage_modifier": 0.3
+  },
+  "roads": {
+    "base_road_sim_speed": 1.1,
+    "stone_road_sim_speed": 1.2,
+    "base_road_cart_speed": 1.2,
+    "stone_road_cart_speed": 1.35
+  },
+  "culture": {
+    "amphitheater_event_duration": 300.0,
+    "event_culture_boost": 30.0,
+    "event_happiness_boost": 10.0,
+    "theatre_items_per_event": 5
+  },
+  "education": {
+    "school_duration": 200.0,
+    "school_learning_bonus": 1.2,
+    "school_min_age": 50.0
+  },
+  "military": {
+    "comment": "Unit training times in seconds (optimized for 30s-5min range)",
+    "training_time": {
+      "soldier": 30,
+      "archer": 90,
+      "cavalry": 180
+    },
+    "training_cost": {
+      "soldier": {
+        "wood": 10,
+        "grain": 5
+      },
+      "archer": {
+        "wood": 15,
+        "grain": 5
+      },
+      "cavalry": {
+        "wood": 20,
+        "grain": 10
+      }
+    },
+    "unit_strength": {
+      "soldier": 1.0,
+      "archer": 0.8,
+      "cavalry": 2.0
+    }
+  }
+}

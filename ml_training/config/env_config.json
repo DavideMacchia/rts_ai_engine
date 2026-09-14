@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "description": "RTS Environment Configuration",
+  "environment": {
+    "decision_interval": "__derived_from_config.py_TIME_SCALE__",
+    "max_game_time": "__derived_from_config.py_TIME_SCALE__",
+    "observation_space_size": 32,
+    "feature_keys": [
+      "time_ratio",
+      "wood_ratio",
+      "stone_ratio",
+      "clay_ratio",
+      "grain_ratio",
+      "water_ratio",
+      "food_ratio",
+      "food_variety_ratio",
+      "skill_ratio",
+      "population_ratio",
+      "population_capacity_ratio",
+      "farm_count",
+      "lumberyard_count",
+      "quarry_count",
+      "house_count",
+      "barracks_count",
+      "warehouse_count",
+      "mill_count",
+      "bakery_count",
+      "soldier_count",
+      "military_strength",
+      "army_marching",
+      "opponent_military_strength",
+      "opponent_warehouse_count",
+      "opponent_population",
+      "kids_ratio",
+      "adults_ratio",
+      "elders_ratio",
+      "happiness_ratio",
+      "policy_minimum_food",
+      "policy_forced_conscription",
+      "policy_population_rate"
+    ]
+  },
+  "observation_space": {
+    "low": 0.0,
+    "high": 1.0,
+    "dtype": "float32"
+  },
+  "simulator": {
+    "num_factions": 2,
+    "agent_faction_id": 0
+  },
+  "normalization": {
+    "max_resource": 500.0,
+    "max_population": 50.0,
+    "max_buildings": 10.0,
+    "max_military": 50.0,
+    "max_units": 50.0,
+    "max_barracks": 5.0,
+    "max_warehouse": 5.0,
+    "max_processing": 5.0
+  }
+}

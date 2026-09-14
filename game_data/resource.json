@@ -1,0 +1,139 @@
+{
+  "vein_amounts": {
+    "tree_wood": 50,
+    "stone_deposit": 200,
+    "clay_deposit": 150,
+    "iron_vein": 100,
+    "gold_vein": 50
+  },
+  "regeneration": {
+    "tree_regen": 0.1,
+    "stone_regen": 0.0,
+    "clay_regen": 0.0,
+    "iron_regen": 0.0,
+    "gold_regen": 0.0
+  },
+  "recipes": {
+    "mill": {
+      "input_grain": 10,
+      "output_flour": 8
+    },
+    "bakery": {
+      "input_flour": 5,
+      "input_water": 2,
+      "output_bread": 3
+    },
+    "carpentry": {
+      "input_wood": 10,
+      "output_wood_logs": 5
+    },
+    "blacksmith_weapons": {
+      "input_iron_ingots": 5,
+      "output_weapons": 1
+    },
+    "pottery": {
+      "input_clay": 8,
+      "output_clay_bricks": 4
+    },
+    "stone_cutter": {
+      "input_stone": 10,
+      "output_stone_bricks": 5
+    },
+    "farm": {
+      "output_grain": 10
+    },
+    "cattle_shed": {
+      "input_grain": 5,
+      "output_meat": 2,
+      "output_leather": 1
+    },
+    "hunting": {
+      "output_meat": 5
+    },
+    "chemist": {
+      "input_herbs": 5,
+      "output_potions": 3
+    },
+    "iron_smelting": {
+      "input_iron_ore": 10,
+      "output_iron_ingots": 5
+    },
+    "gold_smelting": {
+      "input_gold_ore": 5,
+      "output_gold_ingots": 2
+    },
+    "leather_armor": {
+      "input_leather": 10,
+      "output_armor": 1
+    },
+    "iron_armor": {
+      "input_iron_ingots": 15,
+      "output_armor": 1
+    },
+    "clothes": {
+      "input_wool": 8,
+      "output_clothes": 2
+    }
+  },
+  "construction_requirements": {
+    "warehouse": {
+      "level_1": {
+        "clay": 50,
+        "stone": 30,
+        "wood": 40
+      },
+      "level_2": {
+        "stone_bricks": 100
+      },
+      "level_3": {
+        "iron_ingots": 50
+      }
+    },
+    "farm": {
+      "wood": 20,
+      "stone": 10
+    },
+    "mill": {
+      "wood": 30,
+      "stone": 20
+    },
+    "bakery": {
+      "wood": 25,
+      "clay_bricks": 15
+    },
+    "barracks": {
+      "wood": 40,
+      "stone": 30
+    },
+    "pottery_workshop": {
+      "wood": 15,
+      "clay": 20
+    },
+    "carpentry_workshop": {
+      "wood": 35,
+      "stone": 15
+    },
+    "blacksmith_workshop": {
+      "wood": 25,
+      "stone": 30,
+      "clay_bricks": 20
+    },
+    "stone_cutter_workshop": {
+      "wood": 20,
+      "stone": 25
+    },
+    "default": {
+      "wood": 15,
+      "stone": 10
+    }
+  },
+  "collection_rates": {
+    "wood": 1.0,
+    "stone": 0.8,
+    "clay": 0.9,
+    "iron_ore": 0.5,
+    "gold_ore": 0.3,
+    "hunting": 0.2,
+    "fishing": 0.5
+  }
+}

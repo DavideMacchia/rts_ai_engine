@@ -1,0 +1,109 @@
+{
+  "life_stages": {
+    "kid_duration": 300.0,
+    "adult_duration": 600.0
+  },
+  "needs_decay": {
+    "diet_level": 0.5,
+    "resting": 0.3,
+    "sociality": 0.2,
+    "culture": 0.1
+  },
+  "needs_thresholds": {
+    "critical": 10.0,
+    "worrying": 40.0,
+    "culture_optimal": 80.0,
+    "culture_worrying": 30.0
+  },
+  "critical_effects": {
+    "diet_health_loss": 2.0,
+    "diet_happiness_loss": 1.0,
+    "resting_happiness_loss": 1.0,
+    "sociality_happiness_loss": 1.0,
+    "culture_happiness_loss": 0.5,
+    "happiness_health_loss": 1.0
+  },
+  "happiness_thresholds": {
+    "critical": 5.0,
+    "worrying": 30.0,
+    "optimal": 70.0
+  },
+  "productivity": {
+    "happiness_worrying_penalty": 20.0,
+    "happiness_optimal_bonus": 10.0,
+    "diet_worrying_penalty": 15.0,
+    "resting_worrying_penalty": 15.0,
+    "sociality_worrying_penalty": 10.0,
+    "min": 0.0,
+    "max": 150.0
+  },
+  "family": {
+    "pregnancy_duration": 30.0,
+    "marriage_chance_opposite_sex": 0.1,
+    "marriage_chance_same_sex": 0.02,
+    "pregnancy_chance": 0.05,
+    "marriage_check_interval": 10.0,
+    "pregnancy_check_interval": 15.0
+  },
+  "orphan": {
+    "boost_min": 5.0,
+    "boost_max": 15.0
+  },
+  "innate_attributes": {
+    "min": 1.0,
+    "max": 100.0,
+    "log_factor": 3.0,
+    "inheritance_variation": 10.0
+  },
+  "skills": {
+    "level_2_unlock_threshold": 50.0,
+    "level_3_unlock_threshold": 50.0
+  },
+  "elder_productivity": {
+    "civil_level_1": {
+      "farmer": 0.30,
+      "tree_planter": 0.30,
+      "fisherman": 0.70,
+      "hunter": 0.10,
+      "miller": 0.30,
+      "breeder": 0.30,
+      "brewer": 0.30,
+      "innkeeper": 0.60,
+      "courier": 0.30,
+      "builder": 0.20,
+      "collector_clay": 0.30,
+      "collector_wood": 0.20,
+      "collector_stone": 0.10,
+      "actor": 0.95,
+      "teacher": 0.90,
+      "nurse": 0.70,
+      "mortician": 0.70,
+      "governor": 0.95
+    },
+    "military_level_1": {
+      "soldier": 0.90,
+      "sword_fighter": 0.15,
+      "bow_fighter": 0.15,
+      "siege_engineer": 0.10,
+      "cavalier": 0.05,
+      "military_healer": 0.35,
+      "military_cook": 0.55
+    },
+    "level_2": {
+      "miner": 0.10,
+      "chemist": 0.60,
+      "healer": 0.80,
+      "potter": 0.50,
+      "carpenter": 0.40,
+      "cook": 0.60,
+      "stone_cutter": 0.30,
+      "trader": 0.70,
+      "tailor": 0.60
+    },
+    "level_3": {
+      "baker": 0.40,
+      "blacksmith": 0.30,
+      "smelter": 0.25
+    }
+  }
+}

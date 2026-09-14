@@ -1,0 +1,68 @@
+{
+  "window": {
+    "width": 1980.0,
+    "height": 1080.0,
+    "title": "RTS Rust Game"
+  },
+  "panels": {
+    "resource_panel_height": 50.0,
+    "building_panel_width": 200.0,
+    "info_panel_width": 250.0,
+    "control_panel_height": 150.0
+  },
+  "spacing": {
+    "padding": 10.0,
+    "padding_large": 50.0,
+    "gap_small": 5.0,
+    "gap_medium": 10.0,
+    "gap_large": 20.0
+  },
+  "buttons": {
+    "width": 250.0,
+    "height": 65.0,
+    "width_small": 100.0,
+    "height_small": 40.0,
+    "building_height": 40.0
+  },
+  "icons": {
+    "resource": 24.0,
+    "building": 30.0,
+    "large": 48.0
+  },
+  "fonts": {
+    "extra_large": 80.0,
+    "large": 40.0,
+    "medium": 22.0,
+    "normal": 18.0,
+    "small": 16.0
+  },
+  "colors": {
+    "panel_background": [0.1, 0.1, 0.2, 0.8],
+    "button_normal": [0.15, 0.15, 0.15],
+    "button_hovered": [0.25, 0.25, 0.45],
+    "button_pressed": [0.35, 0.35, 0.55],
+    "building_button_normal": [0.2, 0.2, 0.6],
+    "building_button_hovered": [0.3, 0.3, 0.7],
+    "building_button_selected": [0.5, 0.5, 0.8],
+    "menu_overlay": [0.0, 0.0, 0.0, 0.7],
+    "info_background": [0.15, 0.15, 0.25, 0.7],
+    "text_primary": [1.0, 1.0, 1.0],
+    "text_secondary": [0.8, 0.8, 0.8],
+    "success": [0.2, 0.8, 0.2],
+    "warning": [0.9, 0.9, 0.2],
+    "danger": [0.9, 0.2, 0.2]
+  },
+  "menu": {
+    "background_width": 1980.0,
+    "background_height": 1080.0,
+    "background_z": -10.0
+  },
+  "resource_display": {
+    "initial_value": "0",
+    "initial_population": "0/0"
+  },
+  "visibility": {
+    "left_panel_height_percent": 70.0,
+    "right_panel_height_percent": 70.0
+  }
+}

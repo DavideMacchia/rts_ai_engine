@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Training run outputs (regenerable, large)
+ml_training/logs_*/
+ml_training/curriculum_logs/
+ml_training/ppo_model/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store

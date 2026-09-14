@@ -1,0 +1,743 @@
+{
+  "achievements": {
+    "economy": {
+      "first_harvest": {
+        "id": "first_harvest",
+        "name": "First Harvest",
+        "description": "Collect 100 grain",
+        "category": "economy",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "resource_collected",
+          "resource": "grain",
+          "amount": 100
+        }
+      },
+      "woodcutter": {
+        "id": "woodcutter",
+        "name": "Woodcutter",
+        "description": "Collect 500 wood",
+        "category": "economy",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "resource_collected",
+          "resource": "wood",
+          "amount": 500
+        }
+      },
+      "stone_mason": {
+        "id": "stone_mason",
+        "name": "Stone Mason",
+        "description": "Collect 500 stone",
+        "category": "economy",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "resource_collected",
+          "resource": "stone",
+          "amount": 500
+        }
+      },
+      "master_gatherer": {
+        "id": "master_gatherer",
+        "name": "Master Gatherer",
+        "description": "Have 1000+ of any single resource",
+        "category": "economy",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "resource_amount",
+          "resource": "any",
+          "amount": 1000
+        }
+      },
+      "resource_tycoon": {
+        "id": "resource_tycoon",
+        "name": "Resource Tycoon",
+        "description": "Have 500+ of all basic resources",
+        "category": "economy",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "resources_amount",
+          "resources": ["wood", "stone", "clay", "grain", "water"],
+          "amount": 500
+        }
+      },
+      "iron_age": {
+        "id": "iron_age",
+        "name": "Iron Age",
+        "description": "Produce 100 iron ingots",
+        "category": "economy",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "resource_produced",
+          "resource": "iron_ingots",
+          "amount": 100
+        }
+      },
+      "golden_empire": {
+        "id": "golden_empire",
+        "name": "Golden Empire",
+        "description": "Produce 50 gold ingots",
+        "category": "economy",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "resource_produced",
+          "resource": "gold_ingots",
+          "amount": 50
+        }
+      },
+      "self_sufficient": {
+        "id": "self_sufficient",
+        "name": "Self-Sufficient",
+        "description": "Produce 100 bread",
+        "category": "economy",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "resource_produced",
+          "resource": "bread",
+          "amount": 100
+        }
+      },
+      "industrial_revolution": {
+        "id": "industrial_revolution",
+        "name": "Industrial Revolution",
+        "description": "Have active production in all resource types simultaneously",
+        "category": "economy",
+        "difficulty": "expert",
+        "condition": {
+          "type": "all_production_active",
+          "duration": 60
+        }
+      }
+    },
+    "building": {
+      "first_foundation": {
+        "id": "first_foundation",
+        "name": "First Foundation",
+        "description": "Build your first building",
+        "category": "building",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "buildings_completed",
+          "amount": 1
+        }
+      },
+      "architect": {
+        "id": "architect",
+        "name": "Architect",
+        "description": "Complete 10 buildings",
+        "category": "building",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "buildings_completed",
+          "amount": 10
+        }
+      },
+      "master_builder": {
+        "id": "master_builder",
+        "name": "Master Builder",
+        "description": "Complete 50 buildings",
+        "category": "building",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "buildings_completed",
+          "amount": 50
+        }
+      },
+      "metropolis": {
+        "id": "metropolis",
+        "name": "Metropolis",
+        "description": "Complete 100 buildings",
+        "category": "building",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "buildings_completed",
+          "amount": 100
+        }
+      },
+      "diversified_economy": {
+        "id": "diversified_economy",
+        "name": "Diversified Economy",
+        "description": "Have at least 1 of each production building type",
+        "category": "building",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "all_building_types",
+          "building_category": "production"
+        }
+      },
+      "production_chain_master": {
+        "id": "production_chain_master",
+        "name": "Production Chain Master",
+        "description": "Complete the full bread production chain",
+        "category": "building",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "buildings_owned",
+          "buildings": ["farm", "mill", "bakery"],
+          "min_count": 1
+        }
+      },
+      "weapons_manufacturer": {
+        "id": "weapons_manufacturer",
+        "name": "Weapons Manufacturer",
+        "description": "Complete the full weapons production chain",
+        "category": "building",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "buildings_owned",
+          "buildings": ["mine", "blacksmith"],
+          "min_count": 1
+        }
+      },
+      "construction_speed": {
+        "id": "construction_speed",
+        "name": "Construction Speed",
+        "description": "Complete 5 buildings in under 5 minutes",
+        "category": "building",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "buildings_in_time",
+          "amount": 5,
+          "time_seconds": 300
+        }
+      }
+    },
+    "population": {
+      "village_founded": {
+        "id": "village_founded",
+        "name": "Village Founded",
+        "description": "Reach population of 20",
+        "category": "population",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "population",
+          "amount": 20
+        }
+      },
+      "thriving_town": {
+        "id": "thriving_town",
+        "name": "Thriving Town",
+        "description": "Reach population of 50",
+        "category": "population",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "population",
+          "amount": 50
+        }
+      },
+      "bustling_city": {
+        "id": "bustling_city",
+        "name": "Bustling City",
+        "description": "Reach population of 100",
+        "category": "population",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "population",
+          "amount": 100
+        }
+      },
+      "megacity": {
+        "id": "megacity",
+        "name": "Megacity",
+        "description": "Reach population of 200",
+        "category": "population",
+        "difficulty": "expert",
+        "condition": {
+          "type": "population",
+          "amount": 200
+        }
+      },
+      "housing_authority": {
+        "id": "housing_authority",
+        "name": "Housing Authority",
+        "description": "Build 10 houses",
+        "category": "population",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "building_count",
+          "building": "house",
+          "amount": 10
+        }
+      },
+      "no_homelessness": {
+        "id": "no_homelessness",
+        "name": "No Homelessness",
+        "description": "Have population capacity exceed population by 50+",
+        "category": "population",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "capacity_surplus",
+          "amount": 50
+        }
+      },
+      "population_boom": {
+        "id": "population_boom",
+        "name": "Population Boom",
+        "description": "Grow population by 30 in under 10 minutes",
+        "category": "population",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "population_growth",
+          "amount": 30,
+          "time_seconds": 600
+        }
+      }
+    },
+    "military": {
+      "first_blood": {
+        "id": "first_blood",
+        "name": "First Blood",
+        "description": "Train your first military unit",
+        "category": "military",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "units_trained",
+          "amount": 1
+        }
+      },
+      "standing_army": {
+        "id": "standing_army",
+        "name": "Standing Army",
+        "description": "Have 10 military units",
+        "category": "military",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "unit_count",
+          "amount": 10
+        }
+      },
+      "military_power": {
+        "id": "military_power",
+        "name": "Military Power",
+        "description": "Have 50 military units",
+        "category": "military",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "unit_count",
+          "amount": 50
+        }
+      },
+      "unstoppable_force": {
+        "id": "unstoppable_force",
+        "name": "Unstoppable Force",
+        "description": "Reach military strength of 100",
+        "category": "military",
+        "difficulty": "expert",
+        "condition": {
+          "type": "military_strength",
+          "amount": 100
+        }
+      },
+      "archer_division": {
+        "id": "archer_division",
+        "name": "Archer Division",
+        "description": "Train 20 archers",
+        "category": "military",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "unit_type_count",
+          "unit": "archer",
+          "amount": 20
+        }
+      },
+      "infantry_regiment": {
+        "id": "infantry_regiment",
+        "name": "Infantry Regiment",
+        "description": "Train 30 soldiers",
+        "category": "military",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "unit_type_count",
+          "unit": "soldier",
+          "amount": 30
+        }
+      },
+      "combined_arms": {
+        "id": "combined_arms",
+        "name": "Combined Arms",
+        "description": "Have both soldiers and archers simultaneously",
+        "category": "military",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "units_owned",
+          "units": ["soldier", "archer"],
+          "min_count": 1
+        }
+      },
+      "first_strike": {
+        "id": "first_strike",
+        "name": "First Strike",
+        "description": "Launch your first attack",
+        "category": "military",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "attacks_launched",
+          "amount": 1
+        }
+      },
+      "victorious": {
+        "id": "victorious",
+        "name": "Victorious",
+        "description": "Win a battle",
+        "category": "military",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "battles_won",
+          "amount": 1
+        }
+      },
+      "warlord": {
+        "id": "warlord",
+        "name": "Warlord",
+        "description": "Win 5 battles",
+        "category": "military",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "battles_won",
+          "amount": 5
+        }
+      },
+      "conqueror": {
+        "id": "conqueror",
+        "name": "Conqueror",
+        "description": "Destroy an enemy warehouse",
+        "category": "military",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "warehouses_destroyed",
+          "amount": 1
+        }
+      },
+      "defender": {
+        "id": "defender",
+        "name": "Defender",
+        "description": "Survive an enemy attack",
+        "category": "military",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "attacks_survived",
+          "amount": 1
+        }
+      }
+    },
+    "victory": {
+      "first_victory": {
+        "id": "first_victory",
+        "name": "First Victory",
+        "description": "Win your first game",
+        "category": "victory",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "games_won",
+          "amount": 1
+        }
+      },
+      "dominant_victory": {
+        "id": "dominant_victory",
+        "name": "Dominant Victory",
+        "description": "Win with 100+ military strength",
+        "category": "victory",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "win_with_military",
+          "military_strength": 100
+        }
+      },
+      "economic_victory": {
+        "id": "economic_victory",
+        "name": "Economic Victory",
+        "description": "Win without attacking",
+        "category": "victory",
+        "difficulty": "expert",
+        "condition": {
+          "type": "win_without_attacking",
+          "max_attacks": 0
+        }
+      },
+      "speed_runner": {
+        "id": "speed_runner",
+        "name": "Speed Runner",
+        "description": "Win in under 30 minutes",
+        "category": "victory",
+        "difficulty": "expert",
+        "condition": {
+          "type": "win_in_time",
+          "time_seconds": 1800
+        }
+      },
+      "untouchable": {
+        "id": "untouchable",
+        "name": "Untouchable",
+        "description": "Win without losing any buildings",
+        "category": "victory",
+        "difficulty": "master",
+        "condition": {
+          "type": "win_without_losses",
+          "buildings_lost": 0
+        }
+      },
+      "perfect_game": {
+        "id": "perfect_game",
+        "name": "Perfect Game",
+        "description": "Win with 100+ pop, 100+ military, 1000+ each resource",
+        "category": "victory",
+        "difficulty": "master",
+        "condition": {
+          "type": "perfect_win",
+          "population": 100,
+          "military_strength": 100,
+          "min_resource_amount": 1000
+        }
+      }
+    },
+    "efficiency": {
+      "efficient_builder": {
+        "id": "efficient_builder",
+        "name": "Efficient Builder",
+        "description": "Complete a building without resource shortage",
+        "category": "efficiency",
+        "difficulty": "beginner",
+        "condition": {
+          "type": "building_no_shortage",
+          "amount": 1
+        }
+      },
+      "no_waste": {
+        "id": "no_waste",
+        "name": "No Waste",
+        "description": "Go 10 minutes without any resource hitting zero",
+        "category": "efficiency",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "no_resource_zero",
+          "duration_seconds": 600
+        }
+      },
+      "balanced_growth": {
+        "id": "balanced_growth",
+        "name": "Balanced Growth",
+        "description": "Have population, buildings, and military all above 20",
+        "category": "efficiency",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "balanced_stats",
+          "population": 20,
+          "buildings": 20,
+          "military": 20
+        }
+      },
+      "sustainable_economy": {
+        "id": "sustainable_economy",
+        "name": "Sustainable Economy",
+        "description": "Maintain positive production for all resources for 15 minutes",
+        "category": "efficiency",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "positive_production",
+          "duration_seconds": 900
+        }
+      },
+      "military_industrial_complex": {
+        "id": "military_industrial_complex",
+        "name": "Military Industrial Complex",
+        "description": "Have 5+ barracks training simultaneously",
+        "category": "efficiency",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "simultaneous_training",
+          "building": "barracks",
+          "amount": 5
+        }
+      },
+      "resource_efficiency": {
+        "id": "resource_efficiency",
+        "name": "Resource Efficiency",
+        "description": "Build 20 buildings without exceeding 800 of any resource",
+        "category": "efficiency",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "buildings_with_limit",
+          "buildings": 20,
+          "max_resource": 800
+        }
+      },
+      "fast_expansion": {
+        "id": "fast_expansion",
+        "name": "Fast Expansion",
+        "description": "Build 10 different building types in under 15 minutes",
+        "category": "efficiency",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "diverse_buildings_in_time",
+          "unique_types": 10,
+          "time_seconds": 900
+        }
+      }
+    },
+    "challenge": {
+      "underdog": {
+        "id": "underdog",
+        "name": "Underdog",
+        "description": "Win after being behind by 50+ military strength",
+        "category": "challenge",
+        "difficulty": "expert",
+        "condition": {
+          "type": "comeback_military",
+          "deficit": 50
+        }
+      },
+      "comeback_king": {
+        "id": "comeback_king",
+        "name": "Comeback King",
+        "description": "Win after losing 50% of buildings",
+        "category": "challenge",
+        "difficulty": "master",
+        "condition": {
+          "type": "comeback_buildings",
+          "loss_percentage": 50
+        }
+      },
+      "resource_crisis": {
+        "id": "resource_crisis",
+        "name": "Resource Crisis",
+        "description": "Survive 5 minutes with all resources below 50",
+        "category": "challenge",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "survive_scarcity",
+          "max_resources": 50,
+          "duration_seconds": 300
+        }
+      },
+      "minimal_army": {
+        "id": "minimal_army",
+        "name": "Minimal Army",
+        "description": "Win with exactly 10 military units",
+        "category": "challenge",
+        "difficulty": "expert",
+        "condition": {
+          "type": "win_with_exact_military",
+          "unit_count": 10
+        }
+      },
+      "pacifist_almost": {
+        "id": "pacifist_almost",
+        "name": "Pacifist (Almost)",
+        "description": "Win with only 1 attack during entire game",
+        "category": "challenge",
+        "difficulty": "master",
+        "condition": {
+          "type": "win_minimal_attacks",
+          "max_attacks": 1
+        }
+      },
+      "builders_challenge": {
+        "id": "builders_challenge",
+        "name": "Builder's Challenge",
+        "description": "Reach 50 buildings before 50 population",
+        "category": "challenge",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "buildings_before_population",
+          "buildings": 50,
+          "max_population": 49
+        }
+      }
+    },
+    "collection": {
+      "jack_of_all_trades": {
+        "id": "jack_of_all_trades",
+        "name": "Jack of All Trades",
+        "description": "Build at least 1 of every building type",
+        "category": "collection",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "all_building_types"
+        }
+      },
+      "specialized_economy": {
+        "id": "specialized_economy",
+        "name": "Specialized Economy",
+        "description": "Have 10+ of the same building type",
+        "category": "collection",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "building_specialization",
+          "amount": 10
+        }
+      },
+      "complete_arsenal": {
+        "id": "complete_arsenal",
+        "name": "Complete Arsenal",
+        "description": "Train all unit types in one game",
+        "category": "collection",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "all_unit_types"
+        }
+      },
+      "research_complete": {
+        "id": "research_complete",
+        "name": "Research Complete",
+        "description": "Build all advanced buildings",
+        "category": "collection",
+        "difficulty": "advanced",
+        "condition": {
+          "type": "buildings_owned",
+          "buildings": ["blacksmith", "carpentry", "stone_cutter", "pottery"],
+          "min_count": 1
+        }
+      },
+      "veteran_player": {
+        "id": "veteran_player",
+        "name": "Veteran Player",
+        "description": "Play 10 complete games",
+        "category": "collection",
+        "difficulty": "intermediate",
+        "condition": {
+          "type": "games_played",
+          "amount": 10
+        }
+      },
+      "master_strategist": {
+        "id": "master_strategist",
+        "name": "Master Strategist",
+        "description": "Win 10 games",
+        "category": "collection",
+        "difficulty": "expert",
+        "condition": {
+          "type": "games_won",
+          "amount": 10
+        }
+      },
+      "legendary_commander": {
+        "id": "legendary_commander",
+        "name": "Legendary Commander",
+        "description": "Win 50 games",
+        "category": "collection",
+        "difficulty": "master",
+        "condition": {
+          "type": "games_won",
+          "amount": 50
+        }
+      }
+    }
+  },
+  "difficulty_levels": {
+    "beginner": 1,
+    "intermediate": 2,
+    "advanced": 3,
+    "expert": 4,
+    "master": 5
+  },
+  "categories": [
+    "economy",
+    "building",
+    "population",
+    "military",
+    "victory",
+    "efficiency",
+    "challenge",
+    "collection"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "construction": {
+    "speed_per_builder": 5.0,
+    "max_builders": 10
+  },
+  "health": {
+    "decay_rate_per_minute": 0.1,
+    "full_functionality_threshold": 75.0,
+    "reduced_functionality_threshold": 50.0,
+    "half_functionality_threshold": 25.0
+  },
+  "storage": {
+    "warehouse": {
+      "level_1": { "food": 100, "processed": 100, "specialized": 50, "military": 50, "culture": 50 },
+      "level_2": { "food": 200, "processed": 200, "specialized": 100, "military": 100, "culture": 100 },
+      "level_3": { "food": 400, "processed": 400, "specialized": 200, "military": 200, "culture": 200 }
+    },
+    "small_internal": { "food": 20, "processed": 20, "specialized": 10, "military": 10, "culture": 10 }
+  },
+  "workers": {
+    "warehouse_couriers": 5,
+    "production_standard": 3,
+    "construction_builders": 3
+  },
+  "area_size": {
+    "small": [2, 2],
+    "medium": [3, 3],
+    "large": [4, 4],
+    "warehouse": [3, 3]
+  },
+  "production_time": {
+    "food": {
+      "flour": 30.0,
+      "bread": 45.0,
+      "beer": 60.0
+    },
+    "materials": {
+      "wood_logs": 20.0,
+      "stone_bricks": 25.0,
+      "clay_bricks": 25.0,
+      "iron_ingots": 60.0,
+      "gold_ingots": 90.0
+    },
+    "crafting": {
+      "sword": 120.0,
+      "armor_leather": 60.0,
+      "armor_iron": 180.0,
+      "potions": 40.0,
+      "clothes": 50.0
+    },
+    "default": 30.0
+  },
+  "construction_time": {
+    "comment": "Building construction times in seconds (optimized for 30s-5min range)",
+    "quick_builds": {
+      "well": 60,
+      "clay_pit": 60
+    },
+    "standard_builds": {
+      "farm": 120,
+      "lumberyard": 120,
+      "quarry": 120,
+      "house": 120,
+      "hunting_shed": 120,
+      "pottery": 120
+    },
+    "complex_builds": {
+      "warehouse": 240,
+      "mill": 180,
+      "bakery": 180,
+      "cattle_shed": 180,
+      "carpentry": 180,
+      "stone_cutter": 180,
+      "dormitory": 180,
+      "barracks": 240,
+      "watchtower": 240
+    },
+    "advanced_builds": {
+      "blacksmith": 300,
+      "mine": 300,
+      "defensive_wall_wood": 180,
+      "defensive_wall_stone": 300
+    }
+  }
+}

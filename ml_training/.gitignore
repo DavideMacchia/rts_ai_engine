@@ -1,0 +1,13 @@
+# Training run outputs (tensorboard, session_log.json, checkpoints, final_model.zip).
+# These are regenerable and large (a single 500k run is ~5 MB; older runs were 44 MB/model).
+logs_*/
+curriculum_logs/
+ppo_model/
+
+# Keep `checkpoints/` — it holds the current deliverable
+# (checkpoints/district/district_agent_bc_v1.zip, ~2 MB).
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/

@@ -1,0 +1,52 @@
+{
+  "version": "5.1.0",
+  "description": "Delta-based rewards: reward positive CHANGES, not absolute state. Diversity/monotony penalties were REMOVED entirely (they punished the necessary idle action -- DO_NOTHING is correct ~99% of steps -- and dominated even the victory signal). Action collapse is prevented by action masking + delta rewards instead.",
+  "action_validity": {
+    "description": "Immediate rewards/penalties for action execution",
+    "valid_action": 0.5,
+    "invalid_cant_afford": -0.5,
+    "invalid_missing_prerequisite": -0.3,
+    "invalid_faction": -1.0,
+    "attack_without_army": -0.5,
+    "attack_without_target": -0.5,
+    "do_nothing": 0.0
+  },
+  "economic_progress": {
+    "description": "Delta rewards: awarded once per positive change",
+    "population_growth": 5.0,
+    "capacity_growth": 1.0,
+    "building_completed": 3.0
+  },
+  "military_progress": {
+    "description": "Delta rewards for military development",
+    "unit_trained": 12.0,
+    "strength_gained": 6.0,
+    "unit_in_training": 0.3
+  },
+  "military_milestones": {
+    "description": "One-time rewards for military pipeline steps (boosted to guide hard exploration)",
+    "first_barracks": 25.0,
+    "first_unit": 20.0,
+    "army_size_3": 20.0,
+    "army_size_5": 25.0,
+    "military_superiority": 30.0
+  },
+  "victory_defeat": {
+    "description": "Game outcome rewards - combat victory worth more than timeout",
+    "victory": 100.0,
+    "victory_time_bonus_per_hour_saved": 2.0,
+    "defeat": -50.0
+  },
+  "penalties": {
+    "description": "Penalties for bad behavior",
+    "stagnation_no_buildings_after_1h": -2.0,
+    "no_barracks_after_check": -0.3,
+    "population_collapse": -5.0,
+    "resource_starvation_after_1h": -0.5,
+    "excessive_farms_per_extra": -0.1,
+    "excessive_farms_threshold": 8
+  },
+  "timing_thresholds": {
+    "description": "DERIVED at load time from config.py REWARD_TIMING_THRESHOLDS \u2014 values here are ignored"
+  }
+}

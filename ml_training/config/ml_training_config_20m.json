@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "description": "ML Training Configuration for RTS AI Agent - 20M Timesteps with Improved Exploration",
+  "training": {
+    "total_timesteps": 20000000,
+    "n_envs": 32,
+    "ent_coef": 0.05,
+    "decision_interval": 1.0,
+    "max_game_time": 1800000.0,
+    "comment": "Increased entropy coefficient from 0.01 to 0.05 to encourage exploration and prevent DO_NOTHING convergence"
+  },
+  "ppo": {
+    "learning_rate": 0.0003,
+    "n_steps_per_env": 64,
+    "batch_size": 1024,
+    "n_epochs": 10,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "comment": "Increased n_steps and batch_size for more stable training with 20M timesteps"
+  },
+  "policy": {
+    "features_dim": 512,
+    "pi_layers": [512, 512, 512],
+    "vf_layers": [512, 512, 512],
+    "activation": "ReLU",
+    "ortho_init": true
+  },
+  "normalization": {
+    "norm_obs": true,
+    "norm_reward": true,
+    "clip_obs": 10.0,
+    "clip_reward": 10.0,
+    "gamma": 0.99
+  },
+  "callbacks": {
+    "diversity_check_freq": 4096,
+    "action_buffer_size": 20000,
+    "comment": "Monitor action diversity more frequently during long training"
+  },
+  "paths": {
+    "log_dir": "./ppo_model_20m",
+    "model_name": "rts_realtime_20m.zip",
+    "vec_normalize_name": "vec_normalize_20m.pkl",
+    "interrupted_model_name": "rts_realtime_20m_interrupted.zip",
+    "interrupted_vec_normalize_name": "vec_normalize_20m_interrupted.pkl"
+  }
+}

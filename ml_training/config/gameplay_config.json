@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "description": "Gameplay constants and thresholds for RTS training",
+
+  "game_phases": {
+    "description": "Time-based game phase transitions (in seconds)",
+    "early_game_end": 7200,
+    "mid_game_end": 14400,
+    "late_game_start": 14400
+  },
+
+  "observation_normalization": {
+    "description": "Maximum values for normalizing observations to [0, 1]",
+    "resources_max": 1000,
+    "population_max": 100,
+    "population_capacity_max": 100,
+    "military_strength_max": 500,
+    "building_count_max": {
+      "farm": 10,
+      "lumberyard": 10,
+      "quarry": 10,
+      "house": 20,
+      "barracks": 5,
+      "warehouse": 5,
+      "mill": 5,
+      "bakery": 5,
+      "soldier": 50
+    }
+  },
+
+  "opponent_strategy": {
+    "description": "Strategy detection thresholds for adaptive opponents",
+    "detection_delay_seconds": 1800,
+    "rush_threshold": {
+      "military_ratio": 0.3,
+      "min_barracks": 1
+    },
+    "boom_threshold": {
+      "min_buildings": 10,
+      "max_military_ratio": 0.1
+    }
+  }
+}

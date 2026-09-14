@@ -1,0 +1,4 @@
+stable-baselines3[extra]
+gymnasium
+numpy>=1.21.0
+pytest>=7.0.0

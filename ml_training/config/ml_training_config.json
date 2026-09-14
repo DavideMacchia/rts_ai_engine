@@ -1,0 +1,49 @@
+{
+  "version": "3.0.0",
+  "description": "ML Training Configuration for RTS AI Agent (MaskablePPO + MLP extractor)",
+  "training": {
+    "total_timesteps": 2000000,
+    "n_envs": 8,
+    "ent_coef": 0.05,
+    "decision_interval": 2.5,
+    "max_game_time": 1800.0
+  },
+  "ppo": {
+    "learning_rate": 0.0003,
+    "n_steps_per_env": 2048,
+    "batch_size": 256,
+    "n_epochs": 10,
+    "gamma": 0.999,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5
+  },
+  "policy": {
+    "extractor": "mlp",
+    "features_dim": 256,
+    "hidden_dims": [256, 256],
+    "pi_layers": [256, 256],
+    "vf_layers": [256, 256],
+    "activation": "ReLU",
+    "ortho_init": true
+  },
+  "normalization": {
+    "norm_obs": true,
+    "norm_reward": false,
+    "clip_obs": 10.0,
+    "clip_reward": 10.0,
+    "gamma": 0.999
+  },
+  "callbacks": {
+    "diversity_check_freq": 2048,
+    "action_buffer_size": 10000
+  },
+  "paths": {
+    "log_dir": "./ppo_model",
+    "model_name": "rts_realtime_final.zip",
+    "vec_normalize_name": "vec_normalize.pkl",
+    "interrupted_model_name": "rts_realtime_interrupted.zip",
+    "interrupted_vec_normalize_name": "vec_normalize_interrupted.pkl"
+  }
+}

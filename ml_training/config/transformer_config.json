@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "description": "Transformer Neural Network Architecture Configuration",
+  "transformer_standard": {
+    "embedding_dim": 128,
+    "d_model": 128,
+    "nhead": 4,
+    "dim_feedforward": 256,
+    "dropout": 0.1,
+    "activation": "gelu",
+    "num_layers": 3,
+    "positional_encoding_scale": 0.02,
+    "batch_first": true,
+    "norm_first": true
+  },
+  "transformer_large": {
+    "embedding_layers": [
+      {"in_features": "input_dim", "out_features": 256},
+      {"in_features": 256, "out_features": 256}
+    ],
+    "d_model": 256,
+    "nhead": 8,
+    "dim_feedforward": 512,
+    "dropout": 0.1,
+    "activation": "gelu",
+    "num_layers": 6,
+    "batch_first": true,
+    "norm_first": true,
+    "output_layers": [
+      {"in_features": 256, "out_features": 512},
+      {"in_features": 512, "out_features": "features_dim"}
+    ]
+  },
+  "initialization": {
+    "method": "orthogonal",
+    "gain": 1.0,
+    "bias_constant": 0.0
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "generation": {
+    "default_width": 300,
+    "default_height": 300,
+    "probabilities": {
+      "mountain": 0.14,
+      "forest": 0.28,
+      "water": 0.42,
+      "sand": 0.68,
+      "snow": 0.8,
+      "road": 0.9,
+      "grass": 0.9
+    }
+  },
+  "isometric": {
+    "tile_width": 64.0,
+    "tile_height": 32.0,
+    "elevation_step": 8.0,
+    "z_index_grid_multiplier": 10.0,
+    "z_index_elevation_multiplier": 5.0
+  },
+  "tile_sprite": {
+    "base_width": 64.0,
+    "base_height": 32.0,
+    "cliff_height": 48.0,
+    "animation_frames": 8
+  },
+  "chunks": {
+    "chunk_size": 32,
+    "load_radius": 2
+  },
+  "elevation": {
+    "min": 0.0,
+    "max": 10.0,
+    "sea_level": 0.0,
+    "hill_threshold": 3.0,
+    "mountain_threshold": 6.0
+  }
+}
