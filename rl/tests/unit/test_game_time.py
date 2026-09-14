@@ -10,8 +10,8 @@ import pytest
 
 # Add parent directories to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
-ml_training_dir = os.path.dirname(os.path.dirname(current_dir))
-sys.path.insert(0, ml_training_dir)
+rl_dir = os.path.dirname(os.path.dirname(current_dir))
+sys.path.insert(0, rl_dir)
 
 from simulator.realtime_simulator import RealTimeRTSSimulator
 from simulator.actions import Action, ActionType

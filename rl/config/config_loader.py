@@ -21,17 +21,17 @@ class ConfigLoader:
         """
         if config_dir is None:
             # Calculate paths relative to this file's location
-            # This file is in: ml_training/config/config_loader.py
+            # This file is in: rl/config/config_loader.py
             # We want to reach: src/assets/constants/
 
-            current_file = Path(__file__)  # ml_training/config/config_loader.py
-            ml_training_dir = current_file.parent.parent  # ml_training/
-            project_root = ml_training_dir.parent  # project root
+            current_file = Path(__file__)  # rl/config/config_loader.py
+            rl_dir = current_file.parent.parent  # rl/
+            project_root = rl_dir.parent  # project root
 
             # Try multiple locations in order of preference
-            # Prioritize ml_training/config/ (where configs are now stored)
+            # Prioritize rl/config/ (where configs are now stored)
             possible_paths = [
-                current_file.parent,  # ml_training/config/ (PRIMARY LOCATION)
+                current_file.parent,  # rl/config/ (PRIMARY LOCATION)
                 Path.cwd() / "config",  # ./config from current directory
                 project_root / "config",  # project_root/config/
             ]
@@ -66,7 +66,7 @@ class ConfigLoader:
         if not config_path.exists():
             # Calculate paths for error message
             current_file = Path(__file__)
-            ml_training_config = current_file.parent
+            rl_config = current_file.parent
 
             # Provide helpful error message with search paths
             searched_paths = [
@@ -82,8 +82,8 @@ class ConfigLoader:
                 error_msg += f"  {i}. {path}\n     [{exists}]\n"
 
             error_msg += f"\n💡 To fix this, place {config_name}.json in:\n"
-            error_msg += f"   {ml_training_config}/\n"
-            error_msg += f"   (Recommended: ml_training/config/{config_name}.json)\n"
+            error_msg += f"   {rl_config}/\n"
+            error_msg += f"   (Recommended: rl/config/{config_name}.json)\n"
 
             raise FileNotFoundError(error_msg)
 

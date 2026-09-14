@@ -7,9 +7,9 @@ venv/
 *.egg-info/
 
 # Training run outputs (regenerable, large)
-ml_training/logs_*/
-ml_training/curriculum_logs/
-ml_training/ppo_model/
+rl/logs_*/
+rl/curriculum_logs/
+rl/ppo_model/
 
 # Editors / OS
 .idea/

@@ -363,7 +363,7 @@ provide and the policy silently learns to read noise.
   are already the dominant per-tick cost — the last place to add a forward pass.
 - **The district never enumerates its sims.** No O(N) command loops from any brain.
 - **No policy multiplies an outcome** (I2).
-- **No agent-based demography inside `ml_training/`** (§7).
+- **No agent-based demography inside `rl/`** (§7).
 
 ---
 

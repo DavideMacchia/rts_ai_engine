@@ -58,7 +58,7 @@ class AchievementRewardMapper:
         """
         if achievements_path is None:
             # Default path relative to this file
-            # File is at: ml_training/simulator/achievements_rewards.py
+            # File is at: rl/simulator/achievements_rewards.py
             # Need to go up 3 levels to reach project root
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
             achievements_path = os.path.join(base_dir, 'game_data', 'achievements.json')

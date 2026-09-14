@@ -1,7 +1,7 @@
 # Working rules for this repo
 
-The plan and current state live in `ml_training/docs/roadmap.md`; the *why* behind
-choices in `ml_training/docs/design_decisions.md` (a chronological log). Read those
+The plan and current state live in `rl/docs/roadmap.md`; the *why* behind
+choices in `rl/docs/design_decisions.md` (a chronological log). Read those
 first; this file is only *how to work*, not *what*.
 
 ## Measurement (the discipline that matters most)

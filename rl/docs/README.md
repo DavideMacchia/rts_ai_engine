@@ -1,6 +1,6 @@
-# ML Training — Documentation
+# RL — Documentation
 
-Documentation for the RTS AI macro-brain training system (`ml_training/`).
+Documentation for the RTS AI macro-brain training system (`rl/`).
 
 ## Read in this order
 

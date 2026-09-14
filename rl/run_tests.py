@@ -16,7 +16,7 @@ tests_dir = script_dir / 'tests'
 # Change to project root so game_data can be found
 os.chdir(project_root)
 
-# Add ml_training to path
+# Add rl to path
 sys.path.insert(0, str(script_dir))
 
 # Now run pytest

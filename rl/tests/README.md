@@ -105,7 +105,7 @@ Tests for debugging specific issues.
 
 ### Run All Unit Tests
 ```bash
-cd src/ml_training
+cd rl
 python -m pytest tests/unit/ -v
 # OR run individually:
 python tests/unit/test_achievements.py
@@ -220,12 +220,12 @@ from simulator.scripted_opponents import get_opponent
 ## Troubleshooting
 
 ### Import Errors
-All tests are organized in subfolders and need to go up 3 levels to reach ml_training:
+All tests are organized in subfolders and need to go up 3 levels to reach rl:
 ```python
 # For tests in unit/, integration/, system/, model/, or debug/ folders
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 ```
-This allows importing from `simulator/`, `training/`, and other ml_training modules.
+This allows importing from `simulator/`, `training/`, and other rl modules.
 
 ### Model Test Failing
 1. Check model path is correct
@@ -243,8 +243,8 @@ This allows importing from `simulator/`, `training/`, and other ml_training modu
 
 ### Pre-commit Tests
 ```bash
-# Run from src/ml_training directory
-cd src/ml_training
+# Run from rl directory
+cd rl
 python tests/unit/test_achievements.py
 python tests/unit/test_scripted_opponents.py
 ```

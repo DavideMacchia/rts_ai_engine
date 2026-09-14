@@ -3,7 +3,7 @@ Test AI improvements: ActionMasker, StateEnhancer, and reward-config invariants
 """
 import sys
 import os
-# Add ml_training directory to path (go up 3 levels: integration -> tests -> ml_training)
+# Add rl directory to path (go up 3 levels: integration -> tests -> rl)
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from simulator.realtime_simulator import RealTimeRTSSimulator

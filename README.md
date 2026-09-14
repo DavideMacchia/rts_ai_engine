@@ -13,7 +13,7 @@ behavioral cloning** of a scripted expert.
         game_data/                 balance data (JSON), shared with the Rust game
             │
             ▼
-   ml_training/simulator/          a macro simulation of the game
+   rl/simulator/                   a macro simulation of the game
      ├─ game_state, professions    people, skills/careers, an age pyramid
      ├─ config                     the anchored economy (+ invariants that run at import)
      ├─ map                        the district's territory / plot
@@ -21,7 +21,7 @@ behavioral cloning** of a scripted expert.
      └─ opponents                  scripted bots (behavior trees) — training foils & BC expert
             │
             ▼
-   ml_training/agents/district/    the RL agent
+   rl/agents/district/             the RL agent
      ├─ env                        Gym environment: observation, action mask, graded reward
      ├─ pretrain_bc                behavioral cloning + critic warm-up
      ├─ train / train_ppo          MaskablePPO training / fine-tuning
@@ -41,7 +41,7 @@ checkpoints are not committed; reproduce one with `pretrain_bc` (a few minutes).
 ## Quickstart
 
 ```bash
-cd ml_training
+cd rl
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -56,17 +56,17 @@ python -m agents.district.evaluate  --model checkpoints/district/agent.zip   # m
 
 | Path | What it is |
 |------|------------|
-| `ml_training/simulator/` | The macro simulation: state, economy, population, combat, map, scripted opponents |
-| `ml_training/agents/district/` | The RL agent: environment, behavioral cloning, training, evaluation |
-| `ml_training/docs/` | Architecture, the training pipeline, and the design-decision log |
-| `ml_training/tests/` | Test suite (the simulator's invariants and behavior) |
+| `rl/simulator/` | The macro simulation: state, economy, population, combat, map, scripted opponents |
+| `rl/agents/district/` | The RL agent: environment, behavioral cloning, training, evaluation |
+| `rl/docs/` | Architecture, the training pipeline, and the design-decision log |
+| `rl/tests/` | Test suite (the simulator's invariants and behavior) |
 | `game_data/` | Balance data (JSON), owned by the game; `scripts/sync_game_data.sh` keeps this copy in step |
 
 ## Documentation
 
-- [`docs/architecture.md`](ml_training/docs/architecture.md) — the tiered design and roadmap.
-- [`docs/rl_training_system.md`](ml_training/docs/rl_training_system.md) — how the pipeline works and how to run it.
-- [`docs/design_decisions.md`](ml_training/docs/design_decisions.md) — the diagnostic log: why each choice was made (the depth of the project).
+- [`docs/architecture.md`](rl/docs/architecture.md) — the tiered design and roadmap.
+- [`docs/rl_training_system.md`](rl/docs/rl_training_system.md) — how the pipeline works and how to run it.
+- [`docs/design_decisions.md`](rl/docs/design_decisions.md) — the diagnostic log: why each choice was made (the depth of the project).
 
 ## License
 

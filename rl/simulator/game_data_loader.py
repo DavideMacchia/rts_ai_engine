@@ -20,10 +20,10 @@ class GameDataLoader:
             game_data_dir: Path to game_data directory. If None, auto-detects.
         """
         if game_data_dir is None:
-            # Auto-detect: ml_training/simulator -> project_root/game_data
+            # Auto-detect: rl/simulator -> project_root/game_data
             current_file = Path(__file__)
-            ml_training_dir = current_file.parent.parent
-            project_root = ml_training_dir.parent
+            rl_dir = current_file.parent.parent
+            project_root = rl_dir.parent
             game_data_dir = project_root / "game_data"
 
         self.game_data_dir = Path(game_data_dir)

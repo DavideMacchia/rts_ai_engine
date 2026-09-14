@@ -45,7 +45,7 @@ Training has three stages (see [design_decisions.md](design_decisions.md) for wh
 Organized by **agent tier**, with tier-agnostic pieces factored into `common/`:
 
 ```
-ml_training/
+rl/
   simulator/            the game simulation — shared by every tier
     managers/           resource, building, training, population, combat, reward
     opponents/          scripted policies (= district-tier baselines / BC experts)
@@ -68,7 +68,7 @@ ml_training/
   docs/  tests/  utils/
 ```
 
-Run entry points as modules from `ml_training/`: `python -m agents.district.train …`
+Run entry points as modules from `rl/`: `python -m agents.district.train …`
 
 > **Note:** SB3 stores the feature-extractor's *module path* inside the saved `.zip`.
 > Moving `agents/common/extractors.py` breaks loading old checkpoints — regenerate
@@ -160,7 +160,7 @@ Run entry points as modules from `ml_training/`: `python -m agents.district.trai
 ## How to run
 
 ```bash
-cd ml_training
+cd rl
 
 # 1) Behavioral cloning + critic warm-up  (produces the current deliverable)
 python -m agents.district.pretrain_bc \

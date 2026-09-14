@@ -3,7 +3,7 @@ Quick debug test to understand attack behavior
 """
 import sys
 import os
-# Add ml_training directory to path (go up 3 levels: debug -> tests -> ml_training)
+# Add rl directory to path (go up 3 levels: debug -> tests -> rl)
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from simulator.realtime_simulator import RealTimeRTSSimulator

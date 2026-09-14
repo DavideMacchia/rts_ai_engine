@@ -7,13 +7,13 @@ import os
 import sys
 from pathlib import Path
 
-# Get project root (ml_training/tests -> ml_training -> project_root)
+# Get project root (rl/tests -> rl -> project_root)
 tests_dir = Path(__file__).parent
-ml_training_dir = tests_dir.parent
-project_root = ml_training_dir.parent
+rl_dir = tests_dir.parent
+project_root = rl_dir.parent
 
 # Change working directory to project root so game_data can be found
 os.chdir(project_root)
 
-# Add ml_training to Python path
-sys.path.insert(0, str(ml_training_dir))
+# Add rl to Python path
+sys.path.insert(0, str(rl_dir))
