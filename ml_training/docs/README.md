@@ -17,9 +17,12 @@ Documentation for the RTS AI macro-brain training system (`ml_training/`).
 
 ## One-line status
 
-**Stage 0 complete.** The **district-tier** agent plays economy *and* military: the deliverable
-`checkpoints/district/district_agent_bc_v1.zip` (behavioral cloning + critic warm-up) wins 10/10
-deterministic games against every scripted opponent. RL fine-tuning is currently
-*not* useful — the scripted expert is already optimal, so there is no headroom
-(design_decisions §D8). Next up: the **`Faction` → `District` refactor** (architecture.md §7 Stage 1),
-which unlocks the macro tier. Self-play is deferred (§D9).
+**Infrastructure works; the agent is mid-redesign and weak.** An earlier tier reached 10/10
+deterministic wins against every scripted bot (the `bc_v1` era, now retired — those checkpoints
+predate the current action space and no longer load). The **district-unified** redesign — one
+tier doing economy *and* military, scored by a graded valuation of its territory — grew the
+action space (30 → 37 actions) and reintroduced the project's oldest failure: the agent
+**doesn't build military**. The current checkpoint (`checkpoints/district/district_agent_bc_v18.zip`,
+BC + critic warm-up on the current env) loads and runs but is passive — it clones a scripted
+expert that itself idles ~86% and conquers ~38%, so it builds almost no army and loses most
+games. Restoring military play under the new objective is the active work (see design_decisions).

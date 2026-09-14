@@ -3,7 +3,8 @@
 A reinforcement-learning agent that learns to run the **economic and military macro layer**
 of a real-time strategy game: exploit a plot of land, climb a production chain from raw
 resources to finished goods and iron military kit, feed and grow a population, and turn the
-surplus into an army — well enough to outlast scripted opponents.
+surplus into an army — to outlast scripted opponents. (How well it currently does that is an
+open problem — see **Status** below.)
 
 The agent trains against a **purpose-built simulator** of the game's macro dynamics (written
 here, in Python), sharing its balance data with the Rust game it models. It is trained with
@@ -62,7 +63,7 @@ settlement that asks for more workers than it can ever have).
             ▼
    ml_training/agents/district/    the RL agent
      ├─ env                        Gym environment: observation, action mask, graded reward
-     ├─ pretrain_bc                behavioral cloning + critic warm-up  (the deliverable)
+     ├─ pretrain_bc                behavioral cloning + critic warm-up  (the warm-start)
      ├─ train / train_ppo          MaskablePPO training / fine-tuning
      └─ evaluate                   measure conquests vs each scripted opponent
 ```
@@ -72,10 +73,16 @@ skill tier), army (by kit), and goods (by how deep in the production chain they 
 paid to exploit its land, climb to high-grade production, and arm its surplus population, with
 no population cap: the real limit is the plot's carrying capacity.
 
-**Status.** Stage 0: the **district-tier** agent plays economy *and* military. The behavioral-cloning
-deliverable (`ml_training/checkpoints/district/`) matches or beats the scripted expert; RL
-fine-tuning currently finds no headroom over it (see design log §D8). The macro tier that
-commands multiple districts is the next stage.
+**Status — honest, and mid-redesign.** The infrastructure is solid: the simulator, the
+training pipeline (behavioral cloning + critic warm-up, then MaskablePPO), and evaluation all
+run end to end. The **agent itself is an open problem right now.** An earlier tier reached
+10/10 deterministic wins against every scripted bot, but the *district-unified* redesign — one
+tier that now does economy *and* military, scored by a graded valuation of its territory —
+grew the action space and reintroduced the project's oldest failure: the agent **doesn't yet
+build military**. The current behavioral-cloning checkpoint clones a scripted expert that is
+itself passive (idles ~86% of the time, conquers ~38%), so it builds almost no army and loses
+most games. Restoring military play under the new objective is the active work; the diagnostic
+log tracks it. This is a research project shown in progress, not a finished win.
 
 ---
 
@@ -91,14 +98,14 @@ pip install -r requirements.txt
 # Run the test suite (the simulator's invariants and behavior)
 python run_tests.py
 
-# Behavioral cloning + critic warm-up — the deliverable
+# Behavioral cloning + critic warm-up (the warm-start policy)
 python -m agents.district.pretrain_bc
 
 # MaskablePPO training / fine-tuning
 python -m agents.district.train
 
-# Measure the trained policy: conquests vs each scripted opponent
-python -m agents.district.evaluate --model checkpoints/district/district_agent_bc_v14.zip
+# Measure a trained policy: conquests vs each scripted opponent
+python -m agents.district.evaluate --model checkpoints/district/district_agent_bc_v18.zip
 ```
 
 ---
