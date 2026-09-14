@@ -89,7 +89,6 @@ def test_basic_gameplay_progression():
 
     initial_grain = faction_0.resources.get('grain', 0)
 
-    # Run for 5 minutes
     for i in range(5):
         sim.step(do_nothing, delta_time=60.0)
 
@@ -110,7 +109,6 @@ def test_basic_gameplay_progression():
 
     initial_pop = faction_0.population
 
-    # Run for 10 more minutes
     for i in range(10):
         sim.step(do_nothing, delta_time=60.0)
 
@@ -175,12 +173,10 @@ def test_model_action_distribution():
         sys.path.insert(0, training_dir)
         import transformer_extractor
 
-        # Load model
         model_path = "ppo_model/rts_realtime_final"
         print(f"\nLoading model from: {model_path}")
         model = PPO.load(model_path)
 
-        # Load env config
         env_config = load_env_config()
         feature_keys = env_config['environment']['feature_keys']
         max_game_time = env_config['environment']['max_game_time']
@@ -190,7 +186,6 @@ def test_model_action_distribution():
         faction = sim.state.factions[0]
         opponent = sim.state.factions[1]
 
-        # Build observation
         obs_dict = {
             'time_ratio': min(sim.game_time / max_game_time, 1.0),
             'wood_ratio': min(faction.get_resource('wood') / 1000, 1.0),

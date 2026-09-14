@@ -7,7 +7,6 @@ import sys
 import os
 import pytest
 
-# Add paths
 current_dir = os.path.dirname(os.path.abspath(__file__))
 ml_training_dir = os.path.dirname(os.path.dirname(current_dir))
 sys.path.insert(0, ml_training_dir)
@@ -123,7 +122,6 @@ class TestCriticalResourceManagement:
             elif action.action_type == ActionType.BUILD_QUARRY:
                 quarry_built = True
 
-            # Execute action
             sim.step({
                 0: Action(faction_id=0, action_type=ActionType.DO_NOTHING),
                 1: action
@@ -241,7 +239,6 @@ def test_full_game_with_improvements():
     print(f"  Stone: {bot_faction.resources['stone']}")
     print(f"  Quarries: {bot_faction.get_building_count('quarry')}")
 
-    # Assertions
     assert bot_faction.get_building_count('quarry') >= 2, \
         "Bot should build at least 2 quarries (was stuck at 1 before fix)"
 

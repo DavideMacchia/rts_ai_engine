@@ -31,7 +31,6 @@ print(f"  Attacker units: {attacker.units}")
 print(f"  Attacker strength: {attacker.military_strength}")
 print(f"  Attacker strength <= 0: {attacker.military_strength <= 0}")
 
-# Give defender some army
 defender.units['soldier'] = 5
 defender.calculate_military_strength()
 
@@ -39,7 +38,6 @@ print(f"\nDefender:")
 print(f"  Defender units: {defender.units}")
 print(f"  Defender strength: {defender.military_strength}")
 
-# Execute attack
 action = Action(ActionType.ATTACK, faction_id=0, target_faction_id=1)
 _, rewards, _ = sim.step({0: action})
 
@@ -74,7 +72,6 @@ print(f"\nAfter attack:")
 print(f"  Attacker: {attacker2.units['soldier']} soldiers (expected ~90, lost 10%)")
 print(f"  Defender: {defender2.units['soldier']} soldiers (expected ~6, lost 40%)")
 
-# Calculate expected
 expected_attacker_remaining = 100 - int(100 * 0.1)
 expected_defender_remaining = 10 - int(10 * 0.4)
 print(f"\nExpected values:")

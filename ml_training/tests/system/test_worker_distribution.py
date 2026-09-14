@@ -47,7 +47,6 @@ def test_worker_priority_allocation():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Set up buildings
     faction.add_building('farm')      # Priority 1, needs 2 workers
     faction.add_building('lumberyard') # Priority 2, needs 2 workers
     faction.add_building('mill')      # Priority 3, needs 1 worker
@@ -102,7 +101,6 @@ def test_production_with_full_workers():
     print(f"Productivity: {productivity:.2f} (expected: 1.00)")
 
     if abs(productivity - 1.0) < 0.01:
-        # Produce for 1 hour
         initial_grain = faction.get_resource('grain')
         sim._produce_resources(delta_time=3600.0)
         final_grain = faction.get_resource('grain')
@@ -146,7 +144,6 @@ def test_production_with_half_workers():
     print(f"Productivity: {productivity:.2f} (expected: 0.50)")
 
     if abs(productivity - 0.5) < 0.01:
-        # Produce for 1 hour
         initial_grain = faction.get_resource('grain')
         sim._produce_resources(delta_time=3600.0)
         final_grain = faction.get_resource('grain')
@@ -189,7 +186,6 @@ def test_production_with_no_workers():
     print(f"Productivity: {productivity:.2f} (expected: 0.00)")
 
     if productivity == 0.0:
-        # Produce for 1 hour
         initial_grain = faction.get_resource('grain')
         sim._produce_resources(delta_time=3600.0)
         final_grain = faction.get_resource('grain')
@@ -223,7 +219,6 @@ def test_military_consumes_population():
 
     print(f"Initial population: {faction.population}")
 
-    # Start training
     faction.add_resource('wood', 100)
     faction.add_resource('grain', 100)
     faction.add_resource('weapons', 10)
@@ -233,9 +228,7 @@ def test_military_consumes_population():
     print(f"Training started: {len(faction.units_in_training)} units in training")
     print(f"Population after starting training: {faction.population}")
 
-    # Training started
     if len(faction.units_in_training) == 1 and faction.population == 10:
-        # Complete training
         training_time = UNIT_TRAINING_TIME['soldier'] * 3600.0
         sim._progress_training(delta_time=training_time)
 
@@ -331,7 +324,6 @@ def test_worker_redistribution_after_building():
         print(f"  Lumberyard workers: {assignments2.get('lumberyard', 0)}")
 
         if assignments2.get('farm', 0) == 2 and assignments2.get('lumberyard', 0) == 0:
-            # Add more population
             faction.population = 4
 
             print(f"\nAfter population increase to 4:")

@@ -83,7 +83,6 @@ def evaluate_against_opponent(model, opponent_difficulty, num_games=100, verbose
             current_win_rate = wins / (game_num + 1)
             print(f"  Games {game_num + 1}/{num_games}: Win rate {current_win_rate:.1%}")
 
-    # Calculate statistics
     win_rate = wins / num_games
     avg_length = np.mean(game_lengths)
 
@@ -130,13 +129,11 @@ def benchmark_all_opponents(model, num_games=100):
     print(f"Games: {num_games}")
     print("="*70)
 
-    # Load env config once
     env_config = load_env_config()
 
     # Test against normal difficulty
     results = evaluate_against_opponent(model, 'normal', num_games, verbose=True, env_config=env_config)
 
-    # Print summary
     print("\n" + "="*70)
     print("BENCHMARK SUMMARY")
     print("="*70)
@@ -144,7 +141,6 @@ def benchmark_all_opponents(model, num_games=100):
     win_rate = results['win_rate']
     avg_length = results['avg_game_length']
 
-    # Rating
     if win_rate >= 0.90:
         rating = "⭐⭐⭐⭐⭐ Mastered"
     elif win_rate >= 0.70:
@@ -161,7 +157,6 @@ def benchmark_all_opponents(model, num_games=100):
     print(f"Rating:       {rating}")
     print("="*70)
 
-    # Overall assessment
     if win_rate >= 0.80:
         print("\n🏆 EXCELLENT - AI is highly competent!")
     elif win_rate >= 0.60:
@@ -206,7 +201,6 @@ def watch_game(model, opponent_difficulty='normal', verbose=True):
         ai_faction = sim.state.get_faction(0)
         opp_faction = sim.state.get_faction(1)
 
-        # Print step
         if verbose and steps % 20 == 0:
             print(f"{steps:<6} {info['action']:<25} "
                   f"{ai_faction.population:<8} {opp_faction.population:<8} "
@@ -214,7 +208,6 @@ def watch_game(model, opponent_difficulty='normal', verbose=True):
 
         steps += 1
 
-    # Game result
     print("\n" + "="*70)
     print("GAME RESULT")
     print("="*70)
@@ -254,7 +247,6 @@ def compare_checkpoints(checkpoint_paths, opponent_difficulty='normal', num_game
     print(f"Games per checkpoint: {num_games}")
     print("="*70)
 
-    # Load env config once
     env_config = load_env_config()
 
     results = []
@@ -268,7 +260,6 @@ def compare_checkpoints(checkpoint_paths, opponent_difficulty='normal', num_game
         result['checkpoint'] = checkpoint_name
         results.append(result)
 
-    # Print comparison
     print("\n" + "="*70)
     print("COMPARISON RESULTS")
     print("="*70)
@@ -293,7 +284,6 @@ def main():
 
     args = parser.parse_args()
 
-    # Load model
     if not args.compare:
         if not args.model_path:
             print("Error: model_path is required (or use --compare)")

@@ -40,16 +40,13 @@ def test_basic_attack_attacker_wins():
     print(f"Defender strength: {defender.military_strength}")
     print(f"Defender adjusted strength (with bonus): {defender.military_strength * DEFENDER_BONUS}")
 
-    # Store initial values
     initial_attacker_units = attacker.units['soldier']
     initial_defender_units = defender.units['soldier']
 
-    # Execute attack
     print("\nExecuting attack...")
     action = Action(ActionType.ATTACK, faction_id=0, target_faction_id=1)
     sim.step({0: action})
 
-    # Check casualties
     attacker_units_after = attacker.units['soldier']
     defender_units_after = defender.units['soldier']
 
@@ -100,16 +97,13 @@ def test_defender_wins():
     print(f"Defender strength: {defender.military_strength}")
     print(f"Defender adjusted strength (with bonus): {defender.military_strength * DEFENDER_BONUS}")
 
-    # Store initial values
     initial_attacker_units = attacker.units['soldier']
     initial_defender_units = defender.units['soldier']
 
-    # Execute attack
     print("\nExecuting attack...")
     action = Action(ActionType.ATTACK, faction_id=0, target_faction_id=1)
     sim.step({0: action})
 
-    # Check casualties
     attacker_units_after = attacker.units['soldier']
     defender_units_after = defender.units['soldier']
 
@@ -147,22 +141,18 @@ def test_attack_without_army():
     attacker = sim.state.factions[0]
     defender = sim.state.factions[1]
 
-    # Give attacker NO army
     attacker.units['soldier'] = 0
     attacker.calculate_military_strength()
     print(f"Attacker soldiers: {attacker.units['soldier']}")
     print(f"Attacker strength: {attacker.military_strength}")
 
-    # Give defender some army
     defender.units['soldier'] = 5
     defender.calculate_military_strength()
     print(f"Defender soldiers: {defender.units['soldier']}")
     print(f"Defender strength: {defender.military_strength}")
 
-    # Store initial values
     initial_defender_units = defender.units['soldier']
 
-    # Execute attack
     print("\nAttempting attack without army...")
     action = Action(ActionType.ATTACK, faction_id=0, target_faction_id=1)
     _, rewards, _ = sim.step({0: action})
@@ -211,12 +201,10 @@ def test_mixed_unit_types():
     print(f"  Total strength: {defender.military_strength}")
     print(f"  Adjusted strength (with bonus): {defender.military_strength * DEFENDER_BONUS}")
 
-    # Store initial values
     initial_attacker_soldiers = attacker.units['soldier']
     initial_attacker_cavalry = attacker.units['cavalry']
     initial_defender_archers = defender.units['archer']
 
-    # Execute attack
     print("\nExecuting attack...")
     action = Action(ActionType.ATTACK, faction_id=0, target_faction_id=1)
     sim.step({0: action})
@@ -260,7 +248,6 @@ def test_building_damage():
         attacker.units['soldier'] = 20
         attacker.calculate_military_strength()
 
-        # Give defender weak army
         defender.units['soldier'] = 2
         defender.calculate_military_strength()
 
@@ -270,7 +257,6 @@ def test_building_damage():
 
         initial_total_buildings = sum(defender.buildings.values())
 
-        # Execute attack
         action = Action(ActionType.ATTACK, faction_id=0, target_faction_id=1)
         sim.step({0: action})
 

@@ -76,7 +76,6 @@ class TestEarlyGameBehavior:
 
         action = self.bot.act(self.game_state, game_time)
 
-        # Give it a few tries
         actions = [self.bot.act(self.game_state, game_time) for _ in range(5)]
 
         # Unlikely to attack in early game even with advantage
@@ -292,7 +291,6 @@ class TestCombatScenarios:
 
     def test_winning_scenario(self):
         """Bot is winning decisively."""
-        # Bot is much stronger
         self.game_state.factions[0].military_strength = 5
         self.game_state.factions[1].military_strength = 20
 
@@ -304,7 +302,6 @@ class TestCombatScenarios:
 
     def test_stalemate_scenario(self):
         """Bot in military stalemate (equal forces)."""
-        # Equal military
         self.game_state.factions[0].military_strength = 30
         self.game_state.factions[1].military_strength = 30
         self.game_state.factions[1].buildings['barracks'] = 1
@@ -348,7 +345,6 @@ class TestEdgeCases:
 
         action = self.bot.act(game_state, game_time=0)
 
-        # Should not crash
         assert action is not None
         assert action.action_type == ActionType.DO_NOTHING
 
@@ -359,7 +355,6 @@ class TestEdgeCases:
 
         action = self.bot.act(game_state, game_time=0)
 
-        # Should not crash
         assert action is not None
         assert action.action_type == ActionType.DO_NOTHING
 
@@ -386,7 +381,6 @@ class TestEdgeCases:
         # Very long game (1000 hours = absurd)
         action = self.bot.act(game_state, game_time=3600000)
 
-        # Should not crash
         assert action is not None
 
 

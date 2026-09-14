@@ -19,11 +19,9 @@ def test_raw_production():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Add a farm
     faction.add_building('farm')
     faction.population = 2  # Farm needs 2 workers
 
-    # Record initial grain
     initial_grain = faction.get_resource('grain')
     print(f"Initial grain: {initial_grain}")
     print(f"Farm count: {faction.get_building_count('farm')}")
@@ -61,7 +59,6 @@ def test_processing_with_inputs():
     # Add grain for processing
     faction.add_resource('grain', 10.0)
 
-    # Add a mill
     faction.add_building('mill')
     faction.population = 1  # Mill needs 1 worker
 
@@ -114,7 +111,6 @@ def test_processing_without_inputs():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Add a mill but NO grain
     faction.add_building('mill')
     faction.population = 1  # Mill needs 1 worker
 
@@ -126,7 +122,6 @@ def test_processing_without_inputs():
     print(f"Initial flour: {initial_flour}")
     print(f"Mill count: {faction.get_building_count('mill')}")
 
-    # Simulate 1 hour
     sim.game_time = 0
     sim.resource_mgr.produce_resources(faction, delta_time=3600.0)
 
@@ -151,11 +146,9 @@ def test_multi_input_processing():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Add inputs for bakery
     faction.add_resource('flour', 5.0)
     faction.add_resource('water', 5.0)
 
-    # Add a bakery
     faction.add_building('bakery')
     faction.population = 1  # Bakery needs 1 worker
 
@@ -168,7 +161,6 @@ def test_multi_input_processing():
     print(f"Initial bread: {initial_bread}")
     print(f"Bakery count: {faction.get_building_count('bakery')}")
 
-    # Simulate 1 hour
     # Bakery should consume 1 flour + 1 water and produce 1 bread per hour
     sim.game_time = 0
     sim.resource_mgr.produce_resources(faction, delta_time=3600.0)
@@ -210,7 +202,6 @@ def test_production_chain():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Set up production chain
     faction.add_building('farm')      # Produces grain
     faction.add_building('mill')      # grain -> flour
     faction.add_building('bakery')    # flour + water -> bread

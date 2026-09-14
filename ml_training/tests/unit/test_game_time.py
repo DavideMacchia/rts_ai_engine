@@ -83,7 +83,6 @@ class TestGameTime:
             1: Action(faction_id=1, action_type=ActionType.DO_NOTHING)
         }
 
-        # Step many times
         for _ in range(100):
             _, _, done = sim.step(actions, delta_time=60.0)
             if done:
@@ -152,7 +151,6 @@ class TestGameTime:
         faction.resources['wood'] = 500
         faction.resources['stone'] = 500
 
-        # Start building a farm
         action = Action(faction_id=0, action_type=ActionType.BUILD_FARM)
         actions = {
             0: action,
@@ -179,11 +177,9 @@ class TestGameTime:
         sim = RealTimeRTSSimulator(num_factions=2)
         faction = sim.state.factions[0]
 
-        # Give faction resources
         faction.resources['wood'] = 500
         faction.resources['stone'] = 500
 
-        # Start building a farm
         action = Action(faction_id=0, action_type=ActionType.BUILD_FARM)
         actions = {
             0: action,
@@ -261,7 +257,6 @@ class TestGameTimeIntegration:
         sim = RealTimeRTSSimulator(num_factions=2, max_game_time=max_time)
         faction = sim.state.factions[0]
 
-        # Give resources
         faction.resources['wood'] = 1000
         faction.resources['stone'] = 1000
 
@@ -279,7 +274,6 @@ class TestGameTimeIntegration:
         }
         sim.step(do_nothing, delta_time=180.0)  # 3 minutes
 
-        # Farm should be done
         assert faction.get_building_count('farm') > 0, "Farm should be built"
 
         # Continue until the time limit. Neither faction attacks, so neither can win:
@@ -296,14 +290,12 @@ class TestGameTimeIntegration:
         max_time = 3600.0
         sim = RealTimeRTSSimulator(num_factions=2, max_game_time=max_time)
 
-        # Advance some time
         actions = {
             0: Action(faction_id=0, action_type=ActionType.DO_NOTHING),
             1: Action(faction_id=1, action_type=ActionType.DO_NOTHING)
         }
         sim.step(actions, delta_time=60.0)
 
-        # Reset
         sim.reset()
 
         assert sim.max_game_time == max_time, \

@@ -25,7 +25,6 @@ def test_action_masking_basic():
     print(f"  Stone: {faction.get_resource('stone')}")
     print(f"  Grain: {faction.get_resource('grain')}")
 
-    # Get valid actions
     valid_actions = sim.get_valid_actions(faction_id=0)
 
     print(f"\nValid actions: {len(valid_actions)}")
@@ -112,7 +111,6 @@ def test_action_masking_with_military():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Add military units
     faction.add_building('barracks')
     faction.units['soldier'] = 5
     faction.calculate_military_strength()
@@ -143,7 +141,6 @@ def test_enhanced_state_affordability():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Get enhanced state
     state = sim.get_state_for_faction(faction_id=0, enhanced=True)
 
     print(f"State features (total: {len(state)}):")
@@ -206,7 +203,6 @@ def test_enhanced_state_prerequisites():
     print(f"  has_house: {state2.get('has_house', 'MISSING')}")
     print(f"  can_attack: {state2.get('can_attack', 'MISSING')}")
 
-    # Validate
     prereq_features = ['has_barracks', 'has_farm', 'has_house', 'can_attack']
     all_present = all(feature in state2 for feature in prereq_features)
     values_correct = (
@@ -233,7 +229,6 @@ def test_enhanced_state_economic_indicators():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Add food and population
     faction.add_resource('grain', 50)
     faction.population = 10
 
@@ -276,7 +271,6 @@ def test_enhanced_state_progress_info():
     from simulator.config import BUILDING_COSTS, BUILDING_BUILD_TIME
     from simulator.config import UNIT_TRAINING_COST, UNIT_TRAINING_TIME
 
-    # Add resources
     faction.add_resource('wood', 100)
     faction.add_resource('stone', 100)
     faction.add_resource('grain', 100)
@@ -369,7 +363,6 @@ def test_action_mask_format():
     # Define all possible actions
     all_actions = list(ActionType)
 
-    # Get binary mask
     mask = sim.get_action_mask(faction_id=0, all_actions=all_actions)
 
     print(f"Total actions: {len(all_actions)}")
@@ -459,13 +452,11 @@ if __name__ == "__main__":
 
     results = []
 
-    # Action Masking Tests
     results.append(("Action Masking - Basic", test_action_masking_basic()))
     results.append(("Action Masking - Barracks", test_action_masking_with_barracks()))
     results.append(("Action Masking - Attack", test_action_masking_with_military()))
     results.append(("Action Mask Format", test_action_mask_format()))
 
-    # Enhanced State Tests
     results.append(("Enhanced State - Affordability", test_enhanced_state_affordability()))
     results.append(("Enhanced State - Prerequisites", test_enhanced_state_prerequisites()))
     results.append(("Enhanced State - Economics", test_enhanced_state_economic_indicators()))

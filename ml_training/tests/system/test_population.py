@@ -26,7 +26,6 @@ def test_population_growth_with_food():
     sim = RealTimeRTSSimulator(num_factions=1)
     faction = sim.state.factions[0]
 
-    # Set initial population
     initial_population = faction.population
     print(f"Initial population: {initial_population}")
     print(f"Population capacity: {faction.population_capacity}")
@@ -74,14 +73,12 @@ def test_population_no_growth_without_food():
     initial_population = faction.population
     print(f"Initial population: {initial_population}")
 
-    # Remove all food
     faction.resources['grain'] = 0
     faction.resources['bread'] = 0
     faction.add_resource('water', 1000)  # Still have water
 
     print("Food: 0 (insufficient for growth)")
 
-    # Simulate many hours
     print("\nSimulating 50 hours (expecting NO growth)...")
     for hour in range(50):
         sim.step({}, delta_time=3600.0)
@@ -124,7 +121,6 @@ def test_population_no_growth_at_capacity():
 
     print(f"Food per capita: {food_needed / initial_population:.1f} (sufficient)")
 
-    # Simulate many hours
     print("\nSimulating 100 hours (expecting NO growth - at capacity)...")
     for hour in range(100):
         sim.step({}, delta_time=3600.0)
@@ -204,7 +200,6 @@ def test_food_consumption():
     # Check actual starting grain (includes STARTING_RESOURCES)
     initial_grain_total = faction.get_resource('grain')
 
-    # Add more food
     faction.add_resource('grain', 100.0)
     faction.add_resource('water', 1000)
 
@@ -255,7 +250,6 @@ def test_bread_preferred_over_grain():
     print(f"Initial bread: {initial_bread}")
     print(f"Initial grain: {initial_grain}")
 
-    # Simulate 1 hour
     sim.step({}, delta_time=3600.0)
 
     final_bread = faction.get_resource('bread')
@@ -315,7 +309,6 @@ def test_water_consumption():
     print(f"Expected consumption per hour: {POPULATION_WATER_CONSUMPTION * population}")
     print("(Note: Wells removed to isolate consumption)")
 
-    # Simulate 1 hour
     sim.step({}, delta_time=3600.0)
 
     final_water = faction.get_resource('water')
@@ -350,7 +343,6 @@ def test_population_capacity_from_houses():
     print(f"Initial capacity: {initial_capacity}")
     print(f"Initial houses: {faction.get_building_count('house')}")
 
-    # Add a house
     faction.add_building('house')
     faction.calculate_population_capacity()
 

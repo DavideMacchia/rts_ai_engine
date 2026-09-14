@@ -43,7 +43,6 @@ class TestNormalBotBasicBehavior:
         game_state = GameState()
         game_state.factions = [Faction(id=0), Faction(id=1)]
 
-        # Give bot resources
         game_state.factions[1].resources['wood'] = 1000
         game_state.factions[1].resources['stone'] = 1000
         game_state.factions[1].resources['grain'] = 500
@@ -97,11 +96,9 @@ class TestNormalBotDefensiveBehavior:
         game_state = GameState()
         game_state.factions = [Faction(id=0), Faction(id=1)]
 
-        # Enemy is much stronger
         game_state.factions[0].military_strength = 50
         game_state.factions[1].military_strength = 10
 
-        # Give bot resources
         game_state.factions[1].resources['wood'] = 1000
         game_state.factions[1].resources['stone'] = 1000
         game_state.factions[1].resources['grain'] = 500
@@ -124,12 +121,10 @@ class TestNormalBotDefensiveBehavior:
         game_state = GameState()
         game_state.factions = [Faction(id=0), Faction(id=1)]
 
-        # Enemy is threatening
         game_state.factions[0].military_strength = 40
         game_state.factions[1].military_strength = 5
         game_state.factions[1].buildings['barracks'] = 0  # No barracks
 
-        # Give bot resources
         game_state.factions[1].resources['wood'] = 1000
         game_state.factions[1].resources['stone'] = 1000
         game_state.factions[1].resources['grain'] = 500
@@ -144,12 +139,10 @@ class TestNormalBotDefensiveBehavior:
         game_state = GameState()
         game_state.factions = [Faction(id=0), Faction(id=1)]
 
-        # Enemy is threatening
         game_state.factions[0].military_strength = 40
         game_state.factions[1].military_strength = 5
         game_state.factions[1].buildings['barracks'] = 1  # Has barracks
 
-        # Give bot resources
         game_state.factions[1].resources['wood'] = 1000
         game_state.factions[1].resources['stone'] = 1000
         game_state.factions[1].resources['grain'] = 500
@@ -188,7 +181,6 @@ class TestNormalBotOffensiveBehavior:
         game_state = GameState()
         game_state.factions = [Faction(id=0), Faction(id=1)]
 
-        # Bot is weaker
         game_state.factions[0].military_strength = 30
         game_state.factions[1].military_strength = 10
 
@@ -211,7 +203,6 @@ class TestNormalBotOffensiveBehavior:
         game_state.factions[0].military_strength = 20
         game_state.factions[1].military_strength = 22  # Only 1.1x
 
-        # Give resources
         game_state.factions[1].resources['wood'] = 1000
         game_state.factions[1].resources['stone'] = 1000
         game_state.factions[1].resources['grain'] = 500
@@ -236,14 +227,11 @@ class TestNormalBotGameProgression:
         max_steps = 100
 
         while not self.sim.is_done() and steps < max_steps:
-            # Bot acts
             bot_action = self.bot.act(self.sim.state, self.sim.game_time)
 
-            # Opponent does nothing
             from simulator.actions import Action
             opponent_action = Action(faction_id=0, action_type=ActionType.DO_NOTHING)
 
-            # Execute step
             self.sim.step({0: opponent_action, 1: bot_action}, delta_time=60.0)
             steps += 1
 
@@ -262,14 +250,11 @@ class TestNormalBotGameProgression:
             bot_faction = self.sim.state.get_faction(1)
             building_counts.append(sum(bot_faction.buildings.values()))
 
-            # Bot acts
             bot_action = self.bot.act(self.sim.state, self.sim.game_time)
 
-            # Opponent does nothing
             from simulator.actions import Action
             opponent_action = Action(faction_id=0, action_type=ActionType.DO_NOTHING)
 
-            # Execute step
             self.sim.step({0: opponent_action, 1: bot_action}, delta_time=60.0)
 
         # Economy should generally trend upward (allowing for some variance)
@@ -285,14 +270,11 @@ class TestNormalBotGameProgression:
         max_steps = 60
 
         while steps < max_steps:
-            # Bot acts
             bot_action = self.bot.act(self.sim.state, self.sim.game_time)
 
-            # Opponent does nothing
             from simulator.actions import Action
             opponent_action = Action(faction_id=0, action_type=ActionType.DO_NOTHING)
 
-            # Execute step
             self.sim.step({0: opponent_action, 1: bot_action}, delta_time=60.0)
             steps += 1
 
@@ -319,7 +301,6 @@ class TestNormalBotResourceManagement:
         game_state = GameState()
         game_state.factions = [Faction(id=0), Faction(id=1)]
 
-        # No resources
         game_state.factions[1].resources['wood'] = 0
         game_state.factions[1].resources['stone'] = 0
         game_state.factions[1].resources['grain'] = 0

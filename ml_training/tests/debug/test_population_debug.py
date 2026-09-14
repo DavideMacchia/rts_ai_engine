@@ -23,7 +23,6 @@ print(f"  Grain: {faction.get_resource('grain')}")
 print(f"  Bread: {faction.get_resource('bread')}")
 print(f"  Buildings: {dict(faction.buildings)}")
 
-# Give food
 faction.add_resource('grain', 1000)
 faction.add_resource('water', 1000)
 
@@ -36,7 +35,6 @@ print(f"  Food per capita: {food_per_capita:.1f}")
 print(f"  Need for growth: 2.0")
 print(f"  Meets food requirement: {food_per_capita >= 2.0}")
 
-# Simulate one step
 print(f"\nSimulating 1 hour...")
 sim.step({})
 
@@ -57,7 +55,6 @@ print(f"   Capacity: {faction.population_capacity}")
 print(f"\n⚠️  ISSUE: Population equals capacity, so growth check fails!")
 print(f"   The condition uses '<' instead of '<=' ")
 
-# Test starvation
 print(f"\n" + "=" * 60)
 print("DEBUG: Starvation Issue")
 print("=" * 60)
@@ -70,7 +67,6 @@ print(f"Starting grain: {faction2.get_resource('grain')}")
 print(f"Starting bread: {faction2.get_resource('bread')}")
 print(f"Buildings: {dict(faction2.buildings)}")
 
-# Remove all food
 faction2.resources['grain'] = 0
 faction2.resources['bread'] = 0
 
@@ -79,7 +75,6 @@ print(f"  Grain: {faction2.get_resource('grain')}")
 print(f"  Bread: {faction2.get_resource('bread')}")
 print(f"  Total food: {faction2.get_resource('grain') + faction2.get_resource('bread')}")
 
-# Simulate
 print(f"\nSimulating 1 hour...")
 sim2.step({})
 

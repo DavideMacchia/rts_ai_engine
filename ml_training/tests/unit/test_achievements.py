@@ -39,14 +39,12 @@ def test_basic_achievements():
     initial_buildings = sum(faction.buildings.values())
     print(f"Initial buildings: {initial_buildings}")
 
-    # Build a farm
     action = Action(faction_id=0, action_type=ActionType.BUILD_FARM)
     state, rewards, done = sim.step({0: action}, delta_time=1.0)
 
     # Record building completed
     sim.reward_calc.record_building_completed()
 
-    # Check achievements
     unlocked = sim.reward_calc.get_unlocked_achievements()
     print(f"Unlocked achievements: {[ach.name for ach in unlocked]}")
 
@@ -125,10 +123,8 @@ def test_military_achievements():
     sim = RealTimeRTSSimulator(num_factions=2)
     faction = sim.state.get_faction(0)
 
-    # Build barracks first
     faction.buildings['barracks'] = 1
 
-    # Train soldiers
     for i in range(3):
         faction.units['soldier'] = faction.get_unit_count('soldier') + 1
         sim.reward_calc.record_unit_trained()
@@ -172,7 +168,6 @@ def test_achievement_rewards():
     initial_reward = sim.reward_calc.calculate_rewards(sim.state, 100.0)
     print(f"Initial reward for faction 0: {initial_reward[0]:.2f}")
 
-    # Check achievement stats
     stats = sim.reward_calc.get_achievement_stats()
     unlocked = sim.reward_calc.get_unlocked_achievements()
 
